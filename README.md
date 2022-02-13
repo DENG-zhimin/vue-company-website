@@ -1,6 +1,7 @@
-# OA front-end (oa)
+## aoi-uw.com website front-end (oa)
 
-OA front-end
+aoi-uw.com website front-end
+framework: vue3 + pinia + vue-route
 
 ## Install the dependencies
 
