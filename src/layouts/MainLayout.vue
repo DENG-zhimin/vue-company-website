@@ -7,7 +7,9 @@
             <img src="~src/assets/imgs/aoi-logo-xs.png" />
           </q-avatar>
           <q-separator dark vertical inset class="q-mx-md" />
-          <q-btn stretch flat label="HOME" />
+          <router-link to="/">
+            <q-btn flat class="text-white">HOME</q-btn>
+          </router-link>
 
           <q-space />
 
