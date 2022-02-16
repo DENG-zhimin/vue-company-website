@@ -11,10 +11,16 @@
 
           <q-space />
 
-          <q-btn-dropdown stretch flat :label="prod_menu.title">
+          <q-btn-dropdown
+            v-for="(tMenu, indexa) in top_menu"
+            :key="indexa"
+            stretch
+            flat
+            :label="tMenu.title"
+          >
             <q-item
-              v-for="item in prod_menu.children"
-              :key="item.title"
+              v-for="(item, indexb) in tMenu.children"
+              :key="indexb"
               clickable
               v-close-popup
               tabindex="0"
@@ -47,44 +53,65 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-/* interface menu_if  {
-  title: string;
-  path: string;
-  avatar: string;
-} */
-const prod_menu = {
-  title: 'PRODUCTS',
-  path: '/products/index',
-  avatar: '',
-  children: [
-    {
-      title: 'CAMERA HOUSING',
-      path: '/products/camera_housing/index',
-      avatar: '',
-    },
-    {
-      title: 'CAMERA LENSES',
-      path: '/products/camera_lens/index',
-      avatar: '',
-    },
-    {
-      title: 'STROBE',
-      path: '/products/strobe/index',
-      avatar: '',
-    },
-    {
-      title: 'FLASH LIGHT',
-      path: '/products/flash_light/index',
-      avatar: '',
-    },
-    {
-      title: 'ACCESSORIES',
-      path: '/products/accessories/index',
-      avatar: '',
-    },
-  ],
-};
+import { menu_if } from 'components/models';
+import { defineComponent, ref } from 'vue';
+interface tMenu_if extends menu_if {
+  children: object;
+}
+
+const prod_menu = ref<menu_if[]>([
+  {
+    title: 'CAMERA HOUSING',
+    path: '/products/camera_housing/index',
+    avatar: '',
+  },
+  {
+    title: 'CAMERA LENSES',
+    path: '/products/camera_lens/index',
+    avatar: '',
+  },
+  {
+    title: 'STROBE',
+    path: '/products/strobe/index',
+    avatar: '',
+  },
+  {
+    title: 'FLASH LIGHT',
+    path: '/products/flash_light/index',
+    avatar: '',
+  },
+  {
+    title: 'ACCESSORIES',
+    path: '/products/accessories/index',
+    avatar: '',
+  },
+]);
+const gallery_menu = ref<menu_if[]>([
+  {
+    title: 'artistA',
+    path: '',
+    avatar: '',
+  },
+  {
+    title: 'artistB',
+    path: '',
+    avatar: '',
+  },
+]);
+const top_menu = ref<tMenu_if[]>([
+  {
+    title: 'PRODUCTS',
+    path: '/products/index',
+    avatar: '',
+    children: prod_menu.value,
+  },
+  {
+    title: 'GALLERY',
+    path: '/gallery/index',
+    avatar: '',
+    children: gallery_menu.value,
+  },
+]);
 export default defineComponent({
   name: 'MainLayout',
 
@@ -92,7 +119,7 @@ export default defineComponent({
 
   setup() {
     return {
-      prod_menu,
+      top_menu,
     };
   },
 });
