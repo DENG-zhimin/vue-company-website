@@ -1,33 +1,44 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+      <div class="q-pa-xs">
+        <q-toolbar class="bg-primary text-white q-my-sm shadow-2">
+          <q-avatar>
+            <img src="~src/assets/imgs/aoi-logo-xs.png" />
+          </q-avatar>
+          <q-separator dark vertical inset class="q-mx-md" />
+          <q-btn stretch flat label="HOME" />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+          <q-space />
 
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
+          <q-btn-dropdown stretch flat :label="prod_menu.title">
+            <q-item
+              v-for="item in prod_menu.children"
+              :key="item.title"
+              clickable
+              v-close-popup
+              tabindex="0"
+              :to="item.path"
+            >
+              <!-- <router-link > -->
+              <q-item-section avatar v-if="item.avatar.length > 1">
+                <q-avatar>
+                  <img :src="item.avatar" />
+                </q-avatar>
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>{{ item.title }}</q-item-label>
+              </q-item-section>
+              <!-- </router-link> -->
+            </q-item>
+          </q-btn-dropdown>
+          <q-separator dark vertical />
+          <q-btn stretch flat label="NEWS" />
+          <q-separator dark vertical />
+          <q-btn stretch flat label="ABOUT US" />
+        </q-toolbar>
+      </div>
     </q-header>
-
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header> Essential Links </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
 
     <q-page-container>
       <router-view />
@@ -36,71 +47,52 @@
 </template>
 
 <script lang="ts">
-import EssentialLink from 'components/EssentialLink.vue';
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
-  },
-];
-
-import { defineComponent, ref } from 'vue';
-
+import { defineComponent } from 'vue';
+/* interface menu_if  {
+  title: string;
+  path: string;
+  avatar: string;
+} */
+const prod_menu = {
+  title: 'PRODUCTS',
+  path: '/products/index',
+  avatar: '',
+  children: [
+    {
+      title: 'CAMERA HOUSING',
+      path: '/products/camera_housing/index',
+      avatar: '',
+    },
+    {
+      title: 'CAMERA LENSES',
+      path: '/products/camera_lens/index',
+      avatar: '',
+    },
+    {
+      title: 'STROBE',
+      path: '/products/strobe/index',
+      avatar: '',
+    },
+    {
+      title: 'FLASH LIGHT',
+      path: '/products/flash_light/index',
+      avatar: '',
+    },
+    {
+      title: 'ACCESSORIES',
+      path: '/products/accessories/index',
+      avatar: '',
+    },
+  ],
+};
 export default defineComponent({
   name: 'MainLayout',
 
-  components: {
-    EssentialLink,
-  },
+  components: {},
 
   setup() {
-    const leftDrawerOpen = ref(false);
-
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
+      prod_menu,
     };
   },
 });
