@@ -6,7 +6,7 @@
         animated
         v-model="slide"
         :autoplay="autoplay"
-        ref="carousel"
+        ref="topCarousel"
         infinite
       >
         <q-carousel-slide
@@ -75,6 +75,15 @@ const sliders = [
 export default defineComponent({
   name: 'PageIndex',
   components: {},
+  methods: {
+    /* topCarouselAct(slide: string) {
+      if (slide === 'previous') {
+        (this: any).$refs.topCarousel.previous();
+      } else {
+        (this: any).$refs.topCarousel.next();
+      }
+    }, */
+  },
   setup() {
     return {
       slide: ref(1),
