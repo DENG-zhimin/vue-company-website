@@ -1,8 +1,8 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <div class="q-pa-xs">
-        <q-toolbar class="bg-primary text-white q-my-sm shadow-2">
+      <div >
+        <q-toolbar class="bg-primary text-white ">
           <q-avatar>
             <img src="~src/assets/imgs/aoi-logo-xs.png" />
           </q-avatar>
@@ -27,6 +27,7 @@
               v-close-popup
               tabindex="0"
               :to="item.path"
+              class="tMenu"
             >
               <!-- <router-link > -->
               <q-item-section avatar v-if="item.avatar.length > 1">
@@ -55,74 +56,100 @@
 </template>
 
 <script lang="ts">
-import { menu_if } from 'components/models';
-import { defineComponent, ref } from 'vue';
-interface tMenu_if extends menu_if {
-  children: object;
-}
+  import { menu_if } from 'src/models/models';
+  import { defineComponent, ref } from 'vue';
+  interface tMenu_if extends menu_if {
+    children: object;
+  }
 
-const prod_menu = ref<menu_if[]>([
-  {
-    title: 'CAMERA HOUSING',
-    path: '/products/camera_housing/index',
-    avatar: '',
-  },
-  {
-    title: 'CAMERA LENSES',
-    path: '/products/camera_lens/index',
-    avatar: '',
-  },
-  {
-    title: 'STROBE',
-    path: '/products/strobe/index',
-    avatar: '',
-  },
-  {
-    title: 'FLASH LIGHT',
-    path: '/products/flash_light/index',
-    avatar: '',
-  },
-  {
-    title: 'ACCESSORIES',
-    path: '/products/accessories/index',
-    avatar: '',
-  },
-]);
-const gallery_menu = ref<menu_if[]>([
-  {
-    title: 'artistA',
-    path: '',
-    avatar: '',
-  },
-  {
-    title: 'artistB',
-    path: '',
-    avatar: '',
-  },
-]);
-const top_menu = ref<tMenu_if[]>([
-  {
-    title: 'PRODUCTS',
-    path: '/products/index',
-    avatar: '',
-    children: prod_menu.value,
-  },
-  {
-    title: 'GALLERY',
-    path: '/gallery/index',
-    avatar: '',
-    children: gallery_menu.value,
-  },
-]);
-export default defineComponent({
-  name: 'MainLayout',
+  const prod_menu = ref<menu_if[]>([
+    {
+      title: 'CAMERA HOUSING',
+      path: '/products/camera_housing/index',
+      avatar: '',
+    },
+    {
+      title: 'CAMERA LENSES',
+      path: '/products/camera_lens/index',
+      avatar: '',
+    },
+    {
+      title: 'STROBE',
+      path: '/products/strobe/index',
+      avatar: '',
+    },
+    {
+      title: 'FLASH LIGHT',
+      path: '/products/flash_light/index',
+      avatar: '',
+    },
+    {
+      title: 'ACCESSORIES',
+      path: '/products/accessories/index',
+      avatar: '',
+    },
+  ]);
+  const gallery_menu = ref<menu_if[]>([
+    {
+      title: 'artistA',
+      path: '',
+      avatar: '',
+    },
+    {
+      title: 'artistB',
+      path: '',
+      avatar: '',
+    },
+  ]);
+  const tutorial_menu = ref<menu_if[]>([
+    {
+      title: 'tutorial1',
+      path: '',
+      avatar: '',
+    },
+    {
+      title: 'tutorial2',
+      path: '',
+      avatar: '',
+    },
+  ]);
+  const top_menu = ref<tMenu_if[]>([
+    {
+      title: 'PRODUCTS',
+      path: '/products/index',
+      avatar: '',
+      children: prod_menu.value,
+    },
+    {
+      title: 'GALLERY',
+      path: '/gallery/index',
+      avatar: '',
+      children: gallery_menu.value,
+    },
+    {
+      title: 'TUTORIALS',
+      path: '/tutorial/index',
+      avatar: '',
+      children: tutorial_menu.value,
+    },
+  ]);
+  export default defineComponent({
+    name: 'MainLayout',
 
-  components: {},
+    components: {},
 
-  setup() {
-    return {
-      top_menu,
-    };
-  },
-});
+    setup() {
+      return {
+        top_menu,
+      };
+    },
+  });
 </script>
+
+<style lang="scss" scoped>
+  .tMenu {
+    background-color: #1976d2;
+    color: white;
+  }
+
+</style>

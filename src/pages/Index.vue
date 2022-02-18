@@ -1,6 +1,7 @@
 <template>
   <q-page class="collumn items-center justify-evenly">
-    <div class="q-pa-md">
+    <!-- <div class="q-pa-md"> -->
+    <div >
       <q-carousel
         swipeable
         animated
@@ -87,7 +88,7 @@ export default defineComponent({
   setup() {
     return {
       slide: ref(1),
-      autoplay: ref(false),
+      autoplay: ref(true),
       sliders,
     };
   },
