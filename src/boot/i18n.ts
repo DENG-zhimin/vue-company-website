@@ -3,16 +3,14 @@ import { createI18n } from 'vue-i18n';
 
 import messages from 'src/i18n';
 
-const i18n = createI18n({
-  locale: 'en-US',
-  messages,
-});
-export default boot(({ app }) => {
-  // Set i18n instance on app
-  app.use(i18n);
-});
+const i18n = createI18n(
+  {
+    locale: 'en-US',
+    messages,
+  },
+);
 
-export function useI18n() {
+/* export const useI18n = () => {
   // eslint-disable-next-line @typescript-eslint/unbound-method
   const { t, te, tm, rt, d, n, ...globalApi } = i18n.global;
   return {
@@ -24,4 +22,10 @@ export function useI18n() {
     n: n.bind(i18n),
     ...globalApi,
   };
-}
+}; */
+
+export default boot(({ app }) => {
+  // Set i18n instance on app
+  // app.use(useI18n);
+  app.use(i18n);
+});
