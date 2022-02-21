@@ -1,38 +1,34 @@
 <template>
-  <div class="column justify-center q-pa-none q-ma-none " style="height: 36px;" >
-    <q-toolbar class="row justify-end  bg-grey-7 text-white q-my-none q-py-none" >
+  <div class="column justify-center q-pa-none q-ma-none" style="height: 36px">
+    <q-toolbar class="row justify-end bg-grey-7 text-white q-my-none q-py-none">
       <q-space />
-        <q-btn-dropdown
+      <q-btn-dropdown
         v-for="(tMenu, indexa) in topMenu"
         :key="indexa"
-          stretch
-          flat
-          :label="$t(tMenu.title)"
+        stretch
+        flat
+        :label="$t(tMenu.title)"
+      >
+        <q-item
+          v-for="(item, indexb) in tMenu.children"
+          :key="indexb"
+          clickable
+          v-close-popup
+          tabindex="0"
+          :to="item.path"
+          class="tMenu"
         >
-          <q-item
-            v-for="(item, indexb) in tMenu.children"
-            :key="indexb"
-            clickable
-            v-close-popup
-            tabindex="0"
-            :to="item.path"
-            class="tMenu"
-          >
-            <!-- <router-link > -->
-            <q-item-section avatar v-if="item.avatar.length > 1">
-              <q-avatar>
-                <img :src="item.avatar" />
-              </q-avatar>
-            </q-item-section>
-            <q-item-section>
-              <q-item-label>{{ $t(item.title) }}</q-item-label>
-            </q-item-section>
-            <!-- </router-link> -->
-          </q-item>
-        </q-btn-dropdown>
-      <!-- <q-separator dark vertical /> -->
+          <q-item-section avatar v-if="item.avatar.length > 1">
+            <q-avatar>
+              <img :src="item.avatar" />
+            </q-avatar>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ $t(item.title) }}</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-btn-dropdown>
       <q-btn stretch flat :label="$t('tMenu_news')" />
-      <!-- <q-separator dark vertical /> -->
       <q-btn stretch flat :label="$t('tMenu_aboutUs')" />
 
       <q-select
@@ -43,7 +39,7 @@
         emit-value
         map-options
         options-dense
-        style="min-width: 120px;"
+        style="min-width: 120px"
         class="q-ml-md"
       />
     </q-toolbar>
@@ -51,10 +47,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive } from 'vue'
+import { defineComponent, ref, reactive } from 'vue';
 import { menu_if } from 'src/models/models';
 import { useI18n } from 'vue-i18n';
-
 
 const gallery_menu = ref<menu_if[]>([
   {
@@ -82,7 +77,6 @@ const tutorial_menu = ref<menu_if[]>([
 ]);
 
 const topMenu = reactive([
-
   {
     title: 'tMenu_gallery',
     path: '/gallery/index',
@@ -90,7 +84,7 @@ const topMenu = reactive([
     children: gallery_menu.value,
   },
   {
-    title:'tMenu_tutorials',
+    title: 'tMenu_tutorials',
     path: '/tutorial/index',
     avatar: '',
     children: tutorial_menu.value,
@@ -109,10 +103,10 @@ export default defineComponent({
     return {
       locale,
       topMenu,
-      localeOptions
-    }
+      localeOptions,
+    };
   },
-})
+});
 </script>
 
 <style lang="scss" scoped>
@@ -120,7 +114,7 @@ export default defineComponent({
   background-color: $grey-7;
   color: white;
 }
-.tMenu button {
-  max-height: 30
+.q-toolbar {
+  min-height: 36px;
 }
 </style>
