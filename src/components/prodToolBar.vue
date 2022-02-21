@@ -63,7 +63,7 @@ const m_housing = ref<menu_if[]>([
   },
   {
     title: 'Housing 2',
-    path: '',
+    path: '/',
     avatar: ' ',
   },
 ]);
