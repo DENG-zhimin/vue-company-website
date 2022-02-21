@@ -11,4 +11,10 @@ export default {
   tMenu_tutorials: '教程',
   tMenu_news: '新聞',
   tMenu_aboutUs: '關於我們',
+
+  m_housing: '防水殼',
+  m_lens: '鏡頭',
+  m_flashlight: '手電',
+  m_strobes: '閃光燈',
+  m_accessories: '配件',
 };

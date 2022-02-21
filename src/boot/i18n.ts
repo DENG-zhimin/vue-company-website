@@ -5,7 +5,8 @@ import messages from 'src/i18n';
 
 const i18n = createI18n(
   {
-    locale: 'en-US',
+    // locale: 'en-US',
+    locale: 'chs',
     messages,
   },
 );

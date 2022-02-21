@@ -11,4 +11,10 @@ export default {
   tMenu_tutorials: '教程',
   tMenu_news: '新闻',
   tMenu_aboutUs: '关于我们',
+
+  m_housing: '防水壳',
+  m_lens: '镜头',
+  m_flashlight: '手电',
+  m_strobes: '闪光灯',
+  m_accessories: '配件',
 };

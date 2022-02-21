@@ -2,60 +2,8 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <div>
-        <q-toolbar class="row justify-end bg-primary text-white">
-          <q-avatar>
-            <img src="~src/assets/imgs/aoi-logo-xs.png" />
-          </q-avatar>
-          <q-separator dark vertical inset class="q-mx-md" />
-          <router-link to="/">
-            <q-btn flat class="text-white">{{$t('tMenu_home')}}</q-btn>
-          </router-link>
-          <q-space />
-            <q-btn-dropdown
-            v-for="(tMenu, indexa) in topMenu"
-            :key="indexa"
-              stretch
-              flat
-              :label="$t(tMenu.title)"
-            >
-              <q-item
-                v-for="(item, indexb) in tMenu.children"
-                :key="indexb"
-                clickable
-                v-close-popup
-                tabindex="0"
-                :to="item.path"
-                class="tMenu"
-              >
-                <!-- <router-link > -->
-                <q-item-section avatar v-if="item.avatar.length > 1">
-                  <q-avatar>
-                    <img :src="item.avatar" />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>{{ $t(item.title) }}</q-item-label>
-                </q-item-section>
-                <!-- </router-link> -->
-              </q-item>
-            </q-btn-dropdown>
-          <q-separator dark vertical />
-          <q-btn stretch flat :label="$t('tMenu_news')" />
-          <q-separator dark vertical />
-          <q-btn stretch flat :label="$t('tMenu_aboutUs')" />
-
-          <q-select
-            v-model="locale"
-            :options="localeOptions"
-            dense
-            borderless
-            emit-value
-            map-options
-            options-dense
-            style="min-width: 120px;"
-            class="q-ml-md"
-          />
-        </q-toolbar>
+        <top-tool-bar/>
+        <prod-tool-bar></prod-tool-bar>
       </div>
     </q-header>
 
@@ -66,10 +14,13 @@
 </template>
 
 <script lang="ts">
+import TopToolBar from 'src/components/topToolBar.vue';
+import prodToolBar from 'src/components/prodToolBar.vue';
 import { menu_if } from 'src/models/models';
 import { defineComponent, ref, reactive } from 'vue';
 // import { useI18n } from 'src/boot/i18n';
 import { useI18n } from 'vue-i18n';
+
 // const { t } = useI18n();
 // interface tMenu_if extends menu_if {
 //   children: object;
@@ -149,15 +100,15 @@ const topMenu = reactive([
 ]);
 
 const localeOptions = [
-  { value: 'en-US', label: 'English' },
   { value: 'chs', label: '简体中文' },
   { value: 'cht', label: '繁体中文' },
+  { value: 'en-US', label: 'English' },
 ];
 
 // const { locale } = useI18n({ useScope: 'global' });
 export default defineComponent({
   name: 'MainLayout',
-  components: {},
+  components: {TopToolBar, prodToolBar},
   data() {
     return {
       
@@ -166,8 +117,8 @@ export default defineComponent({
 
   setup() {
     // const { t } = useI18n();
+
     const { locale } = useI18n({ useScope: 'global' });
-    // const { locale } = i18n({ useScope: 'global' });
 
     // const lang = ref(locale)
 
@@ -187,8 +138,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.tMenu {
-  background-color: #1976d2;
-  color: white;
-}
+
 </style>

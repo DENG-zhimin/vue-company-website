@@ -8,7 +8,14 @@ export default {
   tMenu_home: 'HOME',
   tMenu_products: 'products',
   tMenu_gallery: 'gallery',
-  tMenu_tutorial: 'tutorials',
+  tMenu_tutorials: 'tutorials',
   tMenu_news: 'news',
   tMenu_aboutUs: 'about us',
+
+  m_housing: 'Housing',
+  m_lens: 'Lens',
+  m_flashlight: 'Flashlight',
+  m_accessories: 'Accessories',
+  m_strobes: 'Strobes',
+
 };
