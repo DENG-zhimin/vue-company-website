@@ -1,93 +1,104 @@
 <template>
   <div class="column justify-end">
-    <q-toolbar class="row justify-end  bg-primary text-white">
+    <q-toolbar class="row justify-end bg-primary text-white">
       <q-avatar>
         <img src="~src/assets/imgs/aoi-logo-xs.png" />
       </q-avatar>
       <q-separator dark vertical inset class="q-mx-md" />
       <router-link to="/">
-        <q-btn flat class="text-white">{{$t('tMenu_home')}}</q-btn>
+        <q-btn flat class="text-white">{{ $t('tMenu_home') }}</q-btn>
       </router-link>
       <q-space />
-        <q-btn-dropdown
-          v-for="(tMenu, indexa) in topMenu"
-          :key="indexa"
-          stretch
-          flat
-          :label="$t(tMenu.title)"
-          class=" text-h6 "
+      <q-btn-dropdown
+        v-for="(tMenu, indexa) in topMenu"
+        :key="indexa"
+        stretch
+        flat
+        :label="$t(tMenu.title)"
+        class="text-h6"
+      >
+        <q-item
+          v-for="(item, indexb) in tMenu.children"
+          :key="indexb"
+          clickable
+          v-close-popup
+          tabindex="0"
+          :to="item.path"
+          class="tMenu"
         >
-          <q-item
-            v-for="(item, indexb) in tMenu.children"
-            :key="indexb"
-            clickable
-            v-close-popup
-            tabindex="0"
-            :to="item.path"
-            class="tMenu"
-          >
-            <!-- <router-link > -->
-            <q-item-section avatar v-if="item.avatar.length > 1">
-              <q-avatar>
-                <img :src="item.avatar" />
-              </q-avatar>
-            </q-item-section>
-            <q-item-section>
-              <q-item-label>{{ $t(item.title) }}</q-item-label>
-            </q-item-section>
-            <!-- </router-link> -->
-          </q-item>
-        </q-btn-dropdown>
+          <!-- <router-link > -->
+          <q-item-section avatar v-if="item.avatar.length > 1">
+            <q-avatar>
+              <img :src="item.avatar" />
+            </q-avatar>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ $t(item.title) }}</q-item-label>
+          </q-item-section>
+          <!-- </router-link> -->
+        </q-item>
+      </q-btn-dropdown>
 
       <q-space></q-space>
       <router-link to="/">
-        <q-btn flat class="text-white" icon="shopping_cart" ></q-btn>
+        <q-btn flat class="text-white" icon="shopping_cart"></q-btn>
       </router-link>
       <router-link to="/">
-        <q-btn flat class="text-white" icon="search" ></q-btn>
+        <q-btn flat class="text-white" icon="search"></q-btn>
       </router-link>
     </q-toolbar>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive } from 'vue'
+import { defineComponent, ref, reactive } from 'vue';
 import { menu_if } from 'src/models/models';
 import { useI18n } from 'vue-i18n';
 
-
 const m_housing = ref<menu_if[]>([
   {
-    title: 'm_housing1',
+    title: 'Housing 1',
     path: '/products/camera_housing/index',
     avatar: '',
   },
   {
-    title: 'm_housing2',
+    title: 'Housing 2',
     path: '',
     avatar: ' ',
   },
 ]);
 const m_lens = ref<menu_if[]>([
   {
-    title: 'm_lens1',
+    title: 'Lens1',
     path: '',
     avatar: '',
   },
   {
-    title: 'm_lens2',
+    title: 'Lens2',
+    path: '',
+    avatar: '',
+  },
+]);
+const m_strobes = ref<menu_if[]>([
+  {
+    title: 'Strobe A',
+    path: '',
+    avatar: '',
+  },
+  {
+    title: 'Strobe B',
     path: '',
     avatar: '',
   },
 ]);
 const m_flashlight = ref<menu_if[]>([
   {
-    title: 'm_flash_light',
+    title: 'Flashlight',
     path: '',
     avatar: '',
   },
   {
-    title: 'm_flash_light',
+    title: 'Flashlight',
     path: '',
     avatar: '',
   },
@@ -106,7 +117,6 @@ const m_accessories = ref<menu_if[]>([
 ]);
 
 const topMenu = reactive([
-
   {
     title: 'm_housing',
     path: '/gallery/index',
@@ -114,20 +124,26 @@ const topMenu = reactive([
     children: m_housing.value,
   },
   {
-    title:'m_lens',
+    title: 'm_lens',
     path: '/tutorial/index',
     avatar: '',
     children: m_lens.value,
   },
   {
-    title:'m_flashlight',
+    title: 'm_strobes',
+    path: '/strobe/index',
+    avatar: '',
+    children: m_strobes.value,
+  },
+  {
+    title: 'm_flashlight',
     path: '/tutorial/index',
     avatar: '',
     children: m_flashlight.value,
   },
   {
-    title:'m_accessories',
-    path: '/tutorial/index',
+    title: 'm_accessories',
+    path: '/accessories/index',
     avatar: '',
     children: m_accessories.value,
   },
@@ -145,10 +161,10 @@ export default defineComponent({
     return {
       locale,
       topMenu,
-      localeOptions
-    }
+      localeOptions,
+    };
   },
-})
+});
 </script>
 
 <style lang="scss" scoped>
