@@ -10,15 +10,17 @@
         infinite
         height="300px"
       >
-          <q-carousel-slide
-            v-for="(slide, index) in sliders"
-            :key="index"
-            :name="index"
-            :img-src="slide.img_src"
-            style="padding: 30px 130px;"
-          >
-            <router-link :to="slide.path" ><div class="full-width full-height"></div></router-link>
-          </q-carousel-slide>
+        <q-carousel-slide
+          v-for="(slide, index) in sliders"
+          :key="index"
+          :name="index"
+          :img-src="slide.img_src"
+          style="padding: 30px 130px"
+        >
+          <router-link :to="slide.path"
+            ><div class="full-width full-height"></div
+          ></router-link>
+        </q-carousel-slide>
         <template v-slot:control>
           <q-carousel-control
             position="top-right"
@@ -68,32 +70,41 @@
 </template>
 
 <script lang="ts">
-import hotProd from 'src/components/hotProd.vue'
-import prodCate from 'src/components/prodCate.vue'
+declare function require(img: string): string; // declare require function
+import hotProd from 'src/components/hotProd.vue';
+import prodCate from 'src/components/prodCate.vue';
 import { defineComponent, ref } from 'vue';
+
+const banner1 = require('src/assets/imgs/banner-1.jpg');
+const banner2 = require('src/assets/imgs/banner-2.jpg');
+const banner3 = require('src/assets/imgs/banner-3.jpg');
+const banner4 = require('src/assets/imgs/banner-4.jpg');
 
 const sliders = [
   {
-    img_src:  'https://www.aoi-uw.com/media/wysiwyg/banner/banner-3.jpg',
+    img_src: banner1,
     path: '/products/camera_housing/index',
   },
   {
-    img_src:  'https://www.aoi-uw.com/media/wysiwyg/banner/banner-4.jpg',
+    img_src: banner2,
     path: '/products/camera_housing/index',
   },
   {
-    img_src:  'https://www.aoi-uw.com/media/wysiwyg/Q1_1920X600.jpg',
+    img_src: banner3,
     path: '/products/camera_housing/index',
   },
   {
-    img_src:  'https://www.aoi-uw.com/media/wysiwyg/UWL-03_1920X600_.jpg',
+    img_src: banner4,
     path: '/products/camera_housing/index',
   },
- ];
+];
 export default defineComponent({
   name: 'PageIndex',
-  components: {hotProd, prodCate },
-  methods: { },
+  components: { hotProd, prodCate },
+  methods: {},
+  mounted() {
+    // console.log(ba1);
+  },
   setup() {
     // const info = msg.info;
 
@@ -106,6 +117,4 @@ export default defineComponent({
 });
 </script>
 
-<style lang="sass" scoped>
-
-</style>
+<style lang="sass" scoped></style>
