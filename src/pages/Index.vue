@@ -1,6 +1,5 @@
 <template>
   <q-page class="items-center justify-evenly">
-    <!-- <div class="column"> -->
     <div id="carousel" class="">
       <q-carousel
         swipeable
@@ -65,15 +64,12 @@
     </div>
     <hot-prod />
     <prod-cate />
-    <myfooter />
-    <!-- </div> -->
   </q-page>
 </template>
 
 <script lang="ts">
 import hotProd from 'src/components/hotProd.vue'
 import prodCate from 'src/components/prodCate.vue'
-import myfooter from 'src/components/footer.vue'
 import { defineComponent, ref } from 'vue';
 
 const sliders = [
@@ -96,7 +92,7 @@ const sliders = [
  ];
 export default defineComponent({
   name: 'PageIndex',
-  components: {hotProd, prodCate, myfooter},
+  components: {hotProd, prodCate },
   methods: { },
   setup() {
     // const info = msg.info;

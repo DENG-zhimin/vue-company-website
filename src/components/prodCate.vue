@@ -31,7 +31,7 @@
             <div class="col bg-cyan-2 column justify-center">
               <div class="row col-6 content-center">
                 <div class="col-6 column justify-center text-h4 text-bold items-center cate-desc">
-                  Strobe
+                  Camera Ports
                 </div>
                 <div class="col-6">
                   <router-link to="/products/camera_housing/index">
