@@ -15,7 +15,7 @@
         stretch
         flat
         :label="$t(tMenu.title)"
-        class="text-h6"
+        class="text-subtitle1 text-bold"
       >
         <q-item
           v-for="(item, indexb) in tMenu.children"

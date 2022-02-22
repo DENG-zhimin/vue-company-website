@@ -61,16 +61,16 @@
         </template>
       </q-carousel>
     </div>
-    <div id="hot-prod" class="q-ma-md">
+    <div id="hot-prod" class="q-pa-sm">
       <q-card class="prod-card bg-teal-5" flat bordered rounded>
         <q-card-section horizontal class="row justify-center">
           <q-card-section
             class="q-pt-xs col column justify-center items-center"
           >
-            <div style="width: 50%">
-              <div class="text-h3 text-bold text-yellow-6">Octopus Design</div>
+            <div style="width: 55%">
+              <div class="text-h3 text-bold text-yellow-6">Octopus Housing</div>
               <div class="text-h4 text-bold q-mt-sm q-mb-xs">
-                Camera Housing
+                Intact Protection
               </div>
               <q-badge label="Unique style" color="orange" rounded />
               <div class="text-caption text-h6 text-bold text-grey-3">
@@ -91,12 +91,72 @@
             <router-link to="/products/camera_housing/index">
               <q-img
                 class="rounded-borders prod-img"
-                src="https://www.aoi-uw.com/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/4/1/41_uh-em5iii_2.jpg"
+                src="~src/assets/imgs/aoi_housing_octopus.png"
               />
             </router-link>
           </q-card-section>
         </q-card-section>
       </q-card>
+    </div>
+    <div class="q-pa-sm">
+      <div class="row q-gutter-x-md cate-block " >
+        <div class="col row bg-green-2 ">
+          <div class="col column justify-center text-h4 text-bold items-center cate-desc">
+            Camera Housing
+          </div>
+          <div class="col-6">
+            <router-link to="/products/camera_housing/index">
+              <q-img src="~src/assets/imgs/aoi_uh-epl10-gry.png" />
+            </router-link>
+          </div>
+        </div>
+        <div class="col column q-gutter-y-md">
+          <div class="col bg-cyan-2 ">
+            <div class="row col-6 ">
+              <div class="col-5 column justify-center text-h4 text-bold items-center cate-desc">
+                Strobe
+              </div>
+              <div class="col-7">
+                <router-link to="/products/camera_housing/index">
+                  <q-img src="~src/assets/imgs/aoi_strobe.png"
+                    height="150px"
+                    fit="scale-down"
+                  />
+                </router-link>
+              </div>
+            </div>
+          </div>
+          <div class="col row q-gutter-x-md">
+            <div class="col bg-cyan-2 column justify-center">
+              <div class="row col-6 content-center">
+                <div class="col-6 column justify-center text-h4 text-bold items-center cate-desc">
+                  Strobe
+                </div>
+                <div class="col-6">
+                  <router-link to="/products/camera_housing/index">
+                    <q-img src="~src/assets/imgs/aoi_port.png"
+                      height="150px"
+                      fit="scale-down"
+                    />
+                  </router-link>
+                </div>
+              </div>
+            </div>
+            <div class="col bg-cyan-2 column justify-center ">
+              <div class="row contents-center ">
+                <div class="col-6 row  content-center  text-h4 text-bold  cate-desc">
+                  Accessories
+                </div>
+                <div class="col-6 q-pa-sm">
+                  <router-link to="/products/camera_housing/index">
+                    <q-img src="~src/assets/imgs/aoi_bracket.png" />
+                  </router-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- </div> -->
   </q-page>
@@ -147,5 +207,14 @@ $hot_prod_ht: 400px
   max-width: 100%
   margin: Auto
 #hot-prod
-  max-height: $hot_prod_ht
+  // max-height: $hot_prod_ht
+  height: fit-content
+
+.cate-block
+  height: 350px
+
+.cate-desc
+  padding-left: 10px 
+  word-wrap: break-word
+  word-break: break-all
 </style>
