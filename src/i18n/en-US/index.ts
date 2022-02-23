@@ -29,7 +29,7 @@ export default {
 
   company: 'company',
   buy: 'buy',
-  support: 'support',
+  supports: 'supports',
   newsAndStories: 'news and stories',
   keepInformed: 'keey informed',
 };

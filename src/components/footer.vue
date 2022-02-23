@@ -6,7 +6,7 @@
       v-for="(fMenu, index) in footMenu"
       :key="index"
    >
-      <div class="text-h6 text-bold text-center q-my-md text-uppercase">{{fMenu.title}}</div>
+      <div class="text-h6 text-bold text-center q-my-md text-uppercase">{{$t(fMenu.title)}}</div>
       <q-tabs
         v-for="(item, indexc) in fMenu.children"
         :key="indexc"
@@ -19,7 +19,7 @@
             <q-item-section v-if="item.avatar" avatar>
               <q-icon :color="item.avatar_color" :name="item.avatar" />
             </q-item-section>
-            <q-item-section>{{item.title}}</q-item-section>
+            <q-item-section>{{$t(item.title)}}</q-item-section>
           </q-item>
          </q-route-tab>
       </q-tabs>
@@ -31,11 +31,11 @@ import { defineComponent, reactive } from 'vue'
 
 const footMenu = reactive([
   {
-    title: "$t('company')",
+    title: 'Company',
     avatar: '',
     children: [
       {
-        title: "$t('tMenu_aboutUs')",
+        title: 'tMenu_aboutU',
         path: '/company/aboutus',
       },
       {
@@ -49,7 +49,7 @@ const footMenu = reactive([
     ]
   },
   {
-    title: "$t('buy')",
+    title: 'Buy',
     avatar: '',
     children: [
       {
@@ -67,7 +67,7 @@ const footMenu = reactive([
     ]
   },
   {
-    title: "$t('support')",
+    title: 'supports',
     avatar: '',
     children: [
       {
@@ -98,7 +98,7 @@ const footMenu = reactive([
   },
  
   {
-    title: "$t('newsAndStories')",
+    title: 'NewsAndStories',
     avatar: '',
     children: [
       {
@@ -116,7 +116,7 @@ const footMenu = reactive([
     ]
   },
   {
-    title: "$t('keepInformed')",
+    title: 'keepInformed',
     avatar: '',
     children: [
       {

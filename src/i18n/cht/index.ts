@@ -29,7 +29,7 @@ export default {
 
   company: '公司',
   buy: '購買',
-  support: '支持',
+  supports: '支持',
   newsAndStories: '新聞與作品',
   keepInformed: '與時俱進',
 };
