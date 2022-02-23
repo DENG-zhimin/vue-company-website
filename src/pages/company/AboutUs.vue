@@ -1,0 +1,5 @@
+<template >
+  <div>
+    <h1 class="row justify-center">{{$t('tMenu_aboutUs')}} </h1>
+  </div>
+</template>

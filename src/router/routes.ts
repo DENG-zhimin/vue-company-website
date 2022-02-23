@@ -10,6 +10,13 @@ const routes: RouteRecordRaw[] = [
         path: 'products/camera_housing/index',
         component: () => import('pages/products/camera_housing.vue'),
       },
+      {
+        path: 'company',
+        component: () => import('layouts/Layout.vue'),
+        children: [
+          { path: 'aboutus', component: () => import('pages/company/AboutUs.vue') },
+        ]
+      },
     ],
   },
 

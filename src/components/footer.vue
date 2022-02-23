@@ -54,7 +54,7 @@ const footMenu = reactive([
     children: [
       {
         title: 'Camere Housing',
-        path: '/company/aboutus',
+        path: '/company/buy/housing',
       },
       {
         title: 'Lens',
@@ -107,7 +107,7 @@ const footMenu = reactive([
       },
       {
         title: 'Industrial News',
-        path: '/company/aboutus',
+        path: '/company/industrial news',
       },
       {
         title: 'Job Optunities',
