@@ -38,12 +38,9 @@
       </q-btn-dropdown>
 
       <q-space></q-space>
-      <router-link to="/">
-        <q-btn flat class="text-white" icon="shopping_cart"></q-btn>
-      </router-link>
-      <router-link to="/">
-        <q-btn flat class="text-white" icon="search"></q-btn>
-      </router-link>
+      
+      <q-btn flat class="text-white" icon="shopping_cart" type="a" to="/" />
+      <q-btn flat class="text-white" icon="search" type="a" to="/" />
     </q-toolbar>
   </div>
 </template>
