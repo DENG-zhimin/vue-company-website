@@ -17,4 +17,19 @@ export default {
   m_flashlight: '手电',
   m_strobes: '闪光灯',
   m_accessories: '配件',
+
+  cameraHousing: '防水壳',
+  strobe: '闪光灯',
+  cameraPorts: '镜头',
+  accessories: '配件',
+
+  exploreSplendidMoments: '精彩时刻',
+  bestStory: '最佳作品',
+
+
+  company: '公司',
+  buy: '购买',
+  support: '支持',
+  newsAndStories: '新闻与作品',
+  keepInformed: '与时俱进',
 };

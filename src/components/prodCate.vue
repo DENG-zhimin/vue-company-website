@@ -5,7 +5,7 @@
         <div
           class="col column justify-center text-h4 text-bold items-center cate-desc"
         >
-          Camera Housing
+          {{$t('cameraHousing')}}
         </div>
         <div class="col-6">
           <router-link to="/products/camera_housing/index">
@@ -25,7 +25,7 @@
             <div
               class="col-6 column justify-center text-h4 text-bold items-center cate-desc"
             >
-              Strobe
+              {{$t('strobe')}}
             </div>
             <div class="col-6">
               <router-link to="/products/camera_housing/index">
@@ -45,7 +45,7 @@
               <div
                 class="col-6 column justify-center text-h4 text-bold items-center cate-desc"
               >
-                Camera Ports
+                {{ $t('cameraPorts')}}
               </div>
               <div class="col-6">
                 <router-link to="/products/camera_housing/index">
@@ -65,7 +65,7 @@
               <div
                 class="col-6 column justify-center text-h4 text-bold items-center cate-desc"
               >
-                Accessories
+                {{$t('accessories')}}
               </div>
               <div class="col-6">
                 <router-link to="/products/camera_housing/index">

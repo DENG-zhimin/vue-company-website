@@ -18,4 +18,18 @@ export default {
   m_accessories: 'Accessories',
   m_strobes: 'Strobes',
 
+  cameraHousing: 'camera housing',
+  strobe: 'strobe',
+  cameraPorts: 'camera ports',
+  accessories: 'accessories',
+
+  exploreSplendidMoments: 'Explore Splendid Moments',
+  bestStory: 'best story',
+
+
+  company: 'company',
+  buy: 'buy',
+  support: 'support',
+  newsAndStories: 'news and stories',
+  keepInformed: 'keey informed',
 };
