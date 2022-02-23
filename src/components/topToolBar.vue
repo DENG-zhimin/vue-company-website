@@ -30,9 +30,7 @@
       </q-btn-dropdown>
       <q-btn stretch flat :label="$t('tMenu_news')" />
       
-      <q-btn stretch flat type="a" :label="$t('tMenu_aboutUs')" to="/company/aboutus" >
-        <!-- <q-item clickable to="/company/aboutus"></q-item> -->
-      </q-btn>
+      <q-btn stretch flat type="a" :label="$t('tMenu_aboutUs')" to="/company/aboutus" />
 
       <q-select
         v-model="locale"

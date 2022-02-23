@@ -5,9 +5,7 @@
         <img src="~src/assets/imgs/aoi-logo-xs.png" />
       </q-avatar>
       <q-separator dark vertical inset class="q-mx-md" />
-      <router-link to="/">
-        <q-btn flat class="text-white">{{ $t('tMenu_home') }}</q-btn>
-      </router-link>
+      <q-btn flat class="text-white" :label="$t('tMenu_home')" type="a" to="/" />
       <q-space />
       <q-btn-dropdown
         v-for="(tMenu, indexa) in topMenu"
