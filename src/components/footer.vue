@@ -31,11 +31,11 @@ import { defineComponent, reactive } from 'vue'
 
 const footMenu = reactive([
   {
-    title: 'Company',
+    title: 'company',
     avatar: '',
     children: [
       {
-        title: 'tMenu_aboutU',
+        title: 'tMenu_aboutUs',
         path: '/company/aboutus',
       },
       {
@@ -49,7 +49,7 @@ const footMenu = reactive([
     ]
   },
   {
-    title: 'Buy',
+    title: 'buy',
     avatar: '',
     children: [
       {
@@ -98,7 +98,7 @@ const footMenu = reactive([
   },
  
   {
-    title: 'NewsAndStories',
+    title: 'newsAndStories',
     avatar: '',
     children: [
       {
