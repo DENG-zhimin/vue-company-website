@@ -25,18 +25,18 @@
       </div>
     </div>
 
-    <div class="col column bg-deep-purple-2">
+    <div class="col column bg-orange-1">
       <div class="col row justify-center content-center text-h4 text-bold text-accent">
         Best Stories
       </div>
       <div class="col-10 row  ">
-        <q-img src="~/src/assets/imgs/story1.png" width="120px" height="120px" class="q-ma-md" />
-        <q-img src="~/src/assets/imgs/story2.png" width="120px" height="120px" class="q-ma-md" />
-        <q-img src="~/src/assets/imgs/story3.png" width="120px" height="120px" class="q-ma-md" />
-        <q-img src="~/src/assets/imgs/story4.png" width="120px" height="120px" class="q-ma-md" />
-        <q-img src="~/src/assets/imgs/story5.png" width="120px" height="120px" class="q-ma-md" />
-        <q-img src="~/src/assets/imgs/story6.png" width="120px" height="120px" class="q-ma-md" />
-        <q-img src="~/src/assets/imgs/story7.png" width="120px" height="120px" class="q-ma-md" />
+        <q-img src="~/src/assets/imgs/story1.png" width="120px" height="120px" class="q-ma-md shadow-8" />
+        <q-img src="~/src/assets/imgs/story2.png" width="120px" height="120px" class="q-ma-md shadow-8" />
+        <q-img src="~/src/assets/imgs/story3.png" width="120px" height="120px" class="q-ma-md shadow-8" />
+        <q-img src="~/src/assets/imgs/story4.png" width="120px" height="120px" class="q-ma-md shadow-8" />
+        <q-img src="~/src/assets/imgs/story5.png" width="120px" height="120px" class="q-ma-md shadow-8" />
+        <q-img src="~/src/assets/imgs/story6.png" width="120px" height="120px" class="q-ma-md shadow-8" />
+        <q-img src="~/src/assets/imgs/story7.png" width="120px" height="120px" class="q-ma-md shadow-8" />
       </div>
     </div>
   </div>

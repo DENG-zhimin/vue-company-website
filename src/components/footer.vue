@@ -6,14 +6,14 @@
       v-for="(fMenu, index) in footMenu"
       :key="index"
    >
-      <div class="text-h6 text-bold text-center q-my-md">{{fMenu.title}}</div>
+      <div class="text-h6 text-bold text-center q-my-md text-uppercase">{{fMenu.title}}</div>
       <q-tabs
         v-for="(item, indexc) in fMenu.children"
         :key="indexc"
-        
       >
         <q-route-tab 
           :to="item.path"
+          no-caps
          >
           <q-item>
             <q-item-section v-if="item.avatar" avatar>
