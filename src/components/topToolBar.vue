@@ -94,8 +94,8 @@ const topMenu = reactive([
 
 const localeOptions = [
   { value: 'en-US', label: 'English' },
-  { value: 'chs', label: '简体中文' },
-  { value: 'cht', label: '繁体中文' },
+  { value: 'zh-CN', label: '简体中文' },
+  { value: 'zh-TW', label: '繁体中文' },
 ];
 
 export default defineComponent({

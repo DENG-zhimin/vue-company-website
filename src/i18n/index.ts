@@ -1,8 +1,8 @@
 import enUS from './en-US';
-import cht from './cht';
-import chs from './chs';
+import zhTW from './zh-TW';
+import zhCN from './zh-CN';
 export default {
   'en-US': enUS,
-  chs: chs,
-  cht: cht,
+  'zh-CN': zhCN,
+  'zh-TW': zhTW,
 };

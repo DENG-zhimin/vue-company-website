@@ -13,15 +13,6 @@
           controls
           loop
         ></video>
-        <!-- <q-media-player
-          type="video"
-          background-color="transparent"
-          muted=true
-          autoplay=true
-          sources="/demo.mp4"
-        >
-
-        </q-media-player> -->
       </div>
     </div>
 
