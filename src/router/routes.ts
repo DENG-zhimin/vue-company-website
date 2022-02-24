@@ -17,6 +17,16 @@ const routes: RouteRecordRaw[] = [
           { path: 'aboutus', component: () => import('pages/company/AboutUs.vue') },
         ]
       },
+      {
+        path: 'gallery',
+        component: () => import('layouts/Layout.vue'),
+        children: [
+          { path: 'photo/:id',
+            component: () => import('pages/gallery/Photo.vue'),
+            props: true
+          },
+        ]
+      },
     ],
   },
 

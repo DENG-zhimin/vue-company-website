@@ -1,35 +1,12 @@
 <template>
-  <div class="row q-gutter-x-md showcase q-pa-sm">
-    <div class="col column bg-purple-2">
-      <div class="col row text-h5 text-bold justify-evenly">
-        <div class="col row content-center justify-center ">Explore Splendid Moments!</div>
-      </div>
-      <div class="col-10 row justify-center content-center ">
-        <video 
-          src="/demo.mp4" 
-          class="full-height full-width"
-          autoplay
-          :muted="muted"
-          controls
-          loop
-        ></video>
-        <!-- <q-media-player
-          type="video"
-          background-color="transparent"
-          muted=true
-          autoplay=true
-          sources="/demo.mp4"
-        >
-
-        </q-media-player> -->
-      </div>
+  <div class="row justify-center text-h4 text-bold q-my-md">
+    Photo{{id}}
+  </div>
+  <div class="row">
+    <div class="col-10 row justify-center content-start q-pa-md">
+      <q-img :src="require('/src/assets/imgs/gallery/photo' + id + '.jpg')" fit="fill"></q-img>
     </div>
-
-    <div class="col column bg-orange-1">
-      <div class="col row justify-center content-center text-h4 text-bold text-accent">
-        Best Stories
-      </div>
-      <div class="col-10 row  ">
+    <div class="col q-pa-md column justify-start items-center">
         <q-item clickable to="/gallery/photo/1" class="q-pa-none q-ma-none" >
           <q-img src="~/src/assets/imgs/story1.png" width="120px" height="120px" class="q-ma-md shadow-8" />
         </q-item>
@@ -51,26 +28,22 @@
         <q-item clickable to="/gallery/photo/7" class="q-pa-none q-ma-none" >
           <q-img src="~/src/assets/imgs/story7.png" width="120px" height="120px" class="q-ma-md shadow-8" />
         </q-item>
-      </div>
     </div>
   </div>
 </template>
-
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue'
 
 export default defineComponent({
+  props: {
+    id: {
+      type: String
+    },
+  },
   setup() {
-    const muted = ref(true);
     return {
-      muted,
+      
     }
-  }
+  },
 })
-
 </script>
-
-<style lang="sass" scoped>
-.showcase
-  min-height: 450px
-</style>
