@@ -17,7 +17,7 @@
           <q-btn
             bordered
             class="shadow-8 q-mt-lg"
-            @click.stop="add2Cart('A Camera Housing')"
+            @click.stop="add2Cart('Added to cart')"
           >
             Add to Cart
           </q-btn>
