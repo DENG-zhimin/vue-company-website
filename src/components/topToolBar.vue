@@ -55,12 +55,12 @@ import { useI18n } from 'vue-i18n';
 const gallery_menu = ref<menu_if[]>([
   {
     title: 'artistA',
-    path: '',
+    path: '/gallery/photo/1',
     avatar: '',
   },
   {
     title: 'artistB',
-    path: '',
+    path: '/gallery/photo/2',
     avatar: ' ',
   },
 ]);
@@ -80,13 +80,13 @@ const tutorial_menu = ref<menu_if[]>([
 const topMenu = reactive([
   {
     title: 'tMenu_gallery',
-    path: '/gallery/index',
+    // path: '/gallery/index',
     avatar: '',
     children: gallery_menu.value,
   },
   {
     title: 'tMenu_tutorials',
-    path: '/tutorial/index',
+    // path: '/tutorial/index',
     avatar: '',
     children: tutorial_menu.value,
   },
