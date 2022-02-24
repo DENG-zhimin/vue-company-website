@@ -31,5 +31,5 @@ export default {
   buy: 'buy',
   supports: 'supports',
   newsAndStories: 'news and stories',
-  keepInformed: 'keey informed',
+  keepInformed: 'keep informed',
 };
