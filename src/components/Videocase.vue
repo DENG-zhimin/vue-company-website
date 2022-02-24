@@ -8,7 +8,7 @@
       <div class="col-8 row justify-center content-center ">
         <video 
           src="/demo.mp4" 
-          class="full-height full-width"
+          class="full-height full-width showcase"
           autoplay
           :muted="muted"
           controls
@@ -36,4 +36,5 @@ export default defineComponent({
 <style lang="sass" scoped>
 .showcase
   min-height: 400px
+  border-radius: 8px
 </style>

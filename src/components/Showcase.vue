@@ -1,6 +1,6 @@
 <template>
     
-    <div class="col column bg-teal-3 q-ma-sm">
+    <div class="col column bg-teal-3 q-ma-sm showcase">
       <div class="col row justify-center content-center text-h4 text-bold text-accent q-my-md">
         Best Stories
       </div>
@@ -44,5 +44,5 @@ export default defineComponent({
 
 <style lang="sass" scoped>
 .showcase
-  min-height: 450px
+  border-radius: 8px
 </style>

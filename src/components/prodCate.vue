@@ -1,6 +1,6 @@
 <template>
-  <div class="q-pa-sm">
-    <div class="row q-gutter-x-md cate-block">
+  <div class="q-pa-sm ">
+    <div class="row q-gutter-x-md ">
       <div class="col row bg-green-2 cate-block">
         <div
           class="col column justify-center text-h4 text-bold items-center cate-desc"
@@ -86,10 +86,12 @@
 
 <style lang="sass">
 .cate-block
-  min-width: 400px
+  border-radius: 8px
 
 .cate-desc
   padding-left: 10px
   word-wrap: break-word
   word-break: break-all
+
+
 </style>
