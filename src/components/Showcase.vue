@@ -4,7 +4,7 @@
       <div class="col row justify-center content-center text-h4 text-bold text-accent q-my-md">
         Best Stories
       </div>
-      <div class="col-10 row  ">
+      <div class="col-10 row justify-center ">
         <q-item clickable to="/gallery/photo/1" class="q-pa-none q-ma-none" >
           <q-img src="~/src/assets/imgs/story1.png" width="120px" height="120px" class="q-ma-md shadow-8" />
         </q-item>
@@ -44,5 +44,5 @@ export default defineComponent({
 
 <style lang="sass" scoped>
 .showcase
-  border-radius: 8px
+  border-radius: 5px
 </style>

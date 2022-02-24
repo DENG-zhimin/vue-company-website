@@ -3,7 +3,7 @@
     <div class="row q-gutter-x-md ">
       <div class="col row bg-green-2 cate-block">
         <div
-          class="col column justify-center text-h4 text-bold items-center cate-desc"
+          class="col column justify-center text-h4 text-bold text-grey-8 items-center cate-desc"
         >
           {{$t('cameraHousing')}}
         </div>
@@ -23,7 +23,7 @@
           <!-- strobe box begin -->
           <div class="row col content-center">
             <div
-              class="col-6 column justify-center text-h4 text-bold items-center cate-desc"
+              class="col-6 column justify-center text-h4 text-bold text-grey-8 items-center cate-desc"
             >
               {{$t('strobe')}}
             </div>
@@ -43,7 +43,7 @@
           <div class="col bg-cyan-2 column justify-center cate-block">
             <div class="row col-6 content-center">
               <div
-                class="col-6 column justify-center text-h4 text-bold items-center cate-desc"
+                class="col-6 column justify-center text-h4 text-bold text-grey-8 items-center cate-desc"
               >
                 {{ $t('cameraPorts')}}
               </div>
@@ -63,7 +63,7 @@
           >
             <div class="col row">
               <div
-                class="col-6 column justify-center text-h4 text-bold items-center cate-desc"
+                class="col-6 column justify-center text-h4 text-bold text-grey-8 items-center cate-desc"
               >
                 {{$t('accessories')}}
               </div>
@@ -86,7 +86,7 @@
 
 <style lang="sass">
 .cate-block
-  border-radius: 8px
+  border-radius: 5px
 
 .cate-desc
   padding-left: 10px

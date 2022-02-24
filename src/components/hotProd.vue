@@ -5,7 +5,7 @@
         <q-card-section class="q-pt-xs col column justify-center items-center">
           <div style="width: 55%">
             <div class="text-h3 text-bold text-yellow-6">Octopus Housing</div>
-            <div class="text-h4 text-bold q-mt-sm q-mb-xs">
+            <div class="text-h4 text-bold q-mt-sm q-mb-xs text-grey-9">
               Intact Protection
             </div>
             <q-badge label="Unique style" color="orange" rounded />
@@ -17,7 +17,7 @@
           <q-btn
             bordered
             class="shadow-8 q-mt-lg"
-            @click.stop="add2Cart('Added to cart')"
+            @click.stop="add2Cart('Added Successfully')"
           >
             Add to Cart
           </q-btn>

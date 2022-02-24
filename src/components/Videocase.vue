@@ -36,5 +36,5 @@ export default defineComponent({
 <style lang="sass" scoped>
 .showcase
   min-height: 400px
-  border-radius: 8px
+  border-radius: 5px
 </style>
