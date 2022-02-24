@@ -66,6 +66,7 @@
     </div>
     <hot-prod />
     <prod-cate />
+    <videocase />
     <showcase />
   </q-page>
 </template>
@@ -75,6 +76,7 @@ declare function require(img: string): string; // declare require function
 import hotProd from 'src/components/hotProd.vue';
 import prodCate from 'src/components/prodCate.vue';
 import showcase from 'src/components/Showcase.vue';
+import Videocase from 'src/components/Videocase.vue';
 import { defineComponent, ref } from 'vue';
 
 const banner1 = require('src/assets/imgs/banner-1.jpg');
@@ -102,7 +104,7 @@ const sliders = [
 ];
 export default defineComponent({
   name: 'PageIndex',
-  components: { hotProd, prodCate, showcase },
+  components: { hotProd, prodCate, showcase, Videocase },
   methods: {},
   mounted() {
     // console.log(ba1);
