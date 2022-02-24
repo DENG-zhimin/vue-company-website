@@ -1,13 +1,14 @@
 <template>
     
-    <div class="col column bg-teal-3 q-ma-sm showcase">
+    <div class="col column bg-grey-4 q-ma-sm showcase">
       <div class="col row justify-center content-center text-h4 text-bold text-accent q-my-md">
         Best Stories
       </div>
-      <div class="col-10 row justify-center ">
-        <q-item clickable to="/gallery/photo/1" class="q-pa-none q-ma-none" >
+      <div class="col-10 row justify-center img-box">
+
+        <q-item  clickable to="/gallery/photo/1" class="q-pa-none q-ma-none" >
           <q-img src="~/src/assets/imgs/story1.png" width="120px" height="120px" class="q-ma-md shadow-8" />
-        </q-item>
+        </q-item >
         <q-item clickable to="/gallery/photo/2" class="q-pa-none q-ma-none" >
           <q-img src="~/src/assets/imgs/story2.png" width="120px" height="120px" class="q-ma-md shadow-8" />
         </q-item>
@@ -45,4 +46,9 @@ export default defineComponent({
 <style lang="sass" scoped>
 .showcase
   border-radius: 5px
+
+.q-img:hover
+  transform: translate(0, -5px)
+  box-shadow: 10px 8px 10px $grey-7
+
 </style>
