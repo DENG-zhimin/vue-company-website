@@ -1,12 +1,16 @@
 <template>
-  <div class="row justify-center text-h4 text-bold q-my-md">
-    Photo{{id}}
-  </div>
   <div class="row">
-    <div class="col-10 row justify-center content-start q-pa-md">
-      <q-img :src="require('/src/assets/imgs/gallery/photo' + id + '.jpg')" fit="fill"></q-img>
+    <div class="col-10 row justify-center content-start q-pa-md ">
+      <div class="row justify-center text-h4 text-bold q-my-md ">
+        Photo{{id}}
+      </div>
+      <q-img 
+        :src="require('/src/assets/imgs/gallery/photo' + id + '.jpg')"
+        fit="scale-down"
+        style="max-height: 1000px"
+        ></q-img>
     </div>
-    <div class="col q-pa-md column justify-start items-center">
+    <div class="col q-pa-md justify-start items-center photo-div">
       <div :class="id === '1'? 'curr-show' : ''">
         <q-item clickable to="/gallery/photo/1" class="q-pa-none q-ma-none" >
           <q-img src="~/src/assets/imgs/story1.png" width="120px" height="120px" class="q-ma-md shadow-8" />
@@ -65,4 +69,8 @@ export default defineComponent({
 <style lang="sass" scoped>
 .curr-show
   border: 3px solid $teal-4
+.photo-div
+  max-height: 1200px
+  overflow-y: auto
+  
 </style>
