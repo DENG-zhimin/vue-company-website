@@ -4,29 +4,13 @@
       <div class="col row justify-center content-center text-h4 text-bold text-accent q-my-md">
         Best Stories
       </div>
-      <div class="col-10 row justify-center img-box">
-
-        <q-item  clickable to="/gallery/photo/1" class="q-pa-none q-ma-none" >
-          <q-img src="~/src/assets/imgs/story1.png" width="120px" height="120px" class="q-ma-md shadow-8" />
-        </q-item >
-        <q-item clickable to="/gallery/photo/2" class="q-pa-none q-ma-none" >
-          <q-img src="~/src/assets/imgs/story2.png" width="120px" height="120px" class="q-ma-md shadow-8" />
-        </q-item>
-        <q-item clickable to="/gallery/photo/3" class="q-pa-none q-ma-none" >
-          <q-img src="~/src/assets/imgs/story3.png" width="120px" height="120px" class="q-ma-md shadow-8" />
-        </q-item>
-        <q-item clickable to="/gallery/photo/4" class="q-pa-none q-ma-none" >
-          <q-img src="~/src/assets/imgs/story4.png" width="120px" height="120px" class="q-ma-md shadow-8" />
-        </q-item>
-        <q-item clickable to="/gallery/photo/5" class="q-pa-none q-ma-none" >
-          <q-img src="~/src/assets/imgs/story5.png" width="120px" height="120px" class="q-ma-md shadow-8" />
-        </q-item>
-        <q-item clickable to="/gallery/photo/6" class="q-pa-none q-ma-none" >
-          <q-img src="~/src/assets/imgs/story6.png" width="120px" height="120px" class="q-ma-md shadow-8" />
-        </q-item>
-        <q-item clickable to="/gallery/photo/7" class="q-pa-none q-ma-none" >
-          <q-img src="~/src/assets/imgs/story7.png" width="120px" height="120px" class="q-ma-md shadow-8" />
-        </q-item>
+      <div class="col-10 row justify-center ">
+        <router-link v-for="(num, index) in img_num" :key="index" tag="li" :to="img.path + num">
+          <div class="img-box q-ma-sm">
+            <q-img :src="require('/src/assets/imgs/story' + num + '.png')"></q-img>
+          </div>
+        </router-link>
+        
       </div>
     </div>
 </template>
@@ -34,9 +18,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+const img={
+  src: '/src/assets/imgs/story',
+  path: '/gallery/photo/'
+}
+
 export default defineComponent({
   setup() {
     return {
+      img,
+      img_num: ['1','2','3','4','5','6','7']
     }
   }
 })
@@ -47,7 +38,11 @@ export default defineComponent({
 .showcase
   border-radius: 5px
 
-.q-img:hover
+.img-box
+  height: 120px
+  width: 120px
+
+.img-box:hover
   transform: translate(0, -5px)
   box-shadow: 10px 8px 10px $grey-7
 
