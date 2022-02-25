@@ -5,9 +5,10 @@
         Best Stories
       </div>
       <div class="col-10 row justify-center ">
-        <router-link v-for="(num, index) in img_num" :key="index" tag="li" :to="img.path + num">
+        <router-link v-for="(num, index) in img_num" :key="index" tag="li" :to="img_path + num">
           <div class="img-box q-ma-sm">
-            <q-img :src="require('/src/assets/imgs/story' + num + '.png')"></q-img>
+            <q-img :src="require('/src/assets/imgs/story' + num + '.png')" /> 
+            <!-- <q-img :src="require(img.src + num + '.png')" /> 此处不能使用img.src变量，必须使用静态字符。  -->
           </div>
         </router-link>
         
@@ -16,18 +17,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
-const img={
-  src: '/src/assets/imgs/story',
-  path: '/gallery/photo/'
-}
+const img_path=ref('/gallery/photo/')
 
 export default defineComponent({
   setup() {
     return {
-      img,
-      img_num: ['1','2','3','4','5','6','7']
+      img_path,
+      img_num: ['1','2','3','4','5','6','7'],
     }
   }
 })
