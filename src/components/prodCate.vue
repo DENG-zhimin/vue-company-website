@@ -8,7 +8,7 @@
             {{$t('cameraHousing')}}
           </div>
           <div class="col-6 ">
-            <router-link to="/products/camera_housing/index">
+            <router-link :to="{name:'prodCate', params: {cate: 'housing'} }">
               <q-img
                 src="~src/assets/imgs/aoi_uh-epl10-gry.png"
                 fit="contain"
@@ -29,7 +29,7 @@
               {{$t('strobe')}}
             </div>
             <div class="col-6">
-              <router-link to="/products/camera_housing/index">
+              <router-link :to="{name:'prodCate', params: {cate: 'strobe'} }">
                 <q-img
                   src="~src/assets/imgs/aoi_strobe.png"
                   height="150px"
@@ -49,7 +49,7 @@
                 {{ $t('cameraPorts')}}
               </div>
               <div class="col-6">
-                <router-link to="/products/camera_housing/index">
+                <router-link :to="{name:'prodCate', params: {cate: 'ports'} }">
                   <q-img
                     src="~src/assets/imgs/aoi_port.png"
                     height="150px"
@@ -69,7 +69,7 @@
                 {{$t('accessories')}}
               </div>
               <div class="col-6">
-                <router-link to="/products/camera_housing/index">
+                <router-link :to="{name:'prodCate', params: {cate: 'accessories'} }">
                   <q-img
                     src="~src/assets/imgs/aoi_bracket.png"
                     height="150px"

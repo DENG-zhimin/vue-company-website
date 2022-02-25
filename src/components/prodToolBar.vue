@@ -103,7 +103,7 @@ const topMenu = reactive([
   },
   {
     title: 'm_strobes',
-    path: 'strobes',
+    path: 'strobe',
     avatar: '',
     children: m_strobes.value,
   },
