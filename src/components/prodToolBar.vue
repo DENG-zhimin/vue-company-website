@@ -2,35 +2,15 @@
   <div class="column justify-end">
     <q-toolbar class="row justify-end bg-white text-grey-10">
       <q-space />
-      <q-btn-dropdown
-        v-for="(tMenu, indexa) in topMenu"
-        :key="indexa"
-        stretch
-        flat
-        :label="$t(tMenu.title)"
-        class="text-subtitle1 text-bold"
-      >
-        <q-item
-          v-for="(item, indexb) in tMenu.children"
-          :key="indexb"
-          clickable
-          v-close-popup
-          tabindex="0"
-          :to="item.path"
-          class="tMenu"
-        >
-          <!-- <router-link > -->
-          <q-item-section avatar v-if="item.avatar.length > 1">
-            <q-avatar>
-              <img :src="item.avatar" />
-            </q-avatar>
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{ $t(item.title) }}</q-item-label>
-          </q-item-section>
-          <!-- </router-link> -->
-        </q-item>
-      </q-btn-dropdown>
+
+      <q-btn stretch flat 
+        v-for="(item, index) in topMenu"
+        :key="index"
+        :label="$t(item.title)" 
+        class="text-h6 text-h4"
+        style="width: fit-content;"
+        @click="goCate(item.path)"
+      />
 
       <q-space></q-space>
       
@@ -42,8 +22,10 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from 'vue';
+import { useRouter } from 'vue-router'
 import { menu_if } from 'src/models/models';
 import { useI18n } from 'vue-i18n';
+// import prodCateVue from './prodCate.vue';
 
 const m_housing = ref<menu_if[]>([
   {
@@ -109,31 +91,31 @@ const m_accessories = ref<menu_if[]>([
 const topMenu = reactive([
   {
     title: 'm_housing',
-    path: '/gallery/index',
+    path: 'housing',
     avatar: '',
     children: m_housing.value,
   },
   {
     title: 'm_lens',
-    path: '/tutorial/index',
+    path: 'lens',
     avatar: '',
     children: m_lens.value,
   },
   {
     title: 'm_strobes',
-    path: '/strobe/index',
+    path: '/product',
     avatar: '',
     children: m_strobes.value,
   },
   {
     title: 'm_flashlight',
-    path: '/tutorial/index',
+    path: '/product',
     avatar: '',
     children: m_flashlight.value,
   },
   {
     title: 'm_accessories',
-    path: '/accessories/index',
+    path: '/product',
     avatar: '',
     children: m_accessories.value,
   },
@@ -147,11 +129,23 @@ const localeOptions = [
 
 export default defineComponent({
   setup() {
+    const router = useRouter()
     const { locale } = useI18n({ useScope: 'global' });
+    const goCate = (prodRoute: string) => {
+      router.push({
+        name: 'prodCate',
+        params: {
+          cate: prodRoute,
+        }
+      }).catch(e => {
+        console.log(e)
+      })
+    }
     return {
       locale,
       topMenu,
       localeOptions,
+      goCate,
     };
   },
 });

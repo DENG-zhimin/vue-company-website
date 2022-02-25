@@ -40,11 +40,13 @@
 
 <script lang="ts">
 import { defineComponent, onBeforeMount, ref } from 'vue';
+import { useRouter } from 'vue-router'
 import {Screen} from 'quasar'
-import * as msg from 'src/boot/msg';
+// import * as msg from 'src/boot/msg';
 
 export default defineComponent({
   setup() {
+    const router = useRouter();
     const hotProdCSS = ref('col row cate-block bg-teal-4')
     onBeforeMount(() => {
       if (Screen.gt.xs === true ) {
@@ -52,7 +54,13 @@ export default defineComponent({
       } 
     });
     const add2Cart = (prod: string) => {
-      msg.info(prod, true);
+      router.push({
+        name: 'prodInfo',
+        params: {
+          id: 'UW-150',
+          prod: prod
+        }
+      }).catch(e => {console.log(e)})
     };
     return {
       hotProdCSS,
