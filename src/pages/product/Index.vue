@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1 class="text-grey-1">Product Index Page</h1>
-    <h2>{{ $t('success') }}</h2>
+  <div class="text-grey-1 column items-center">
+    <h1 >Product Index Page</h1>
+    <h2>{{ $t(params.cate) }}</h2>
   </div>
 </template>
 <script lang="ts">
@@ -16,7 +16,9 @@ export default defineComponent({
       console.log('I got route of index.')
       console.log(route.params)
     })
-    return {}
+    return {
+      params: route.params
+    }
   },
 })
 </script>

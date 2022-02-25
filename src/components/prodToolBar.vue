@@ -103,19 +103,19 @@ const topMenu = reactive([
   },
   {
     title: 'm_strobes',
-    path: '/product',
+    path: 'strobes',
     avatar: '',
     children: m_strobes.value,
   },
   {
     title: 'm_flashlight',
-    path: '/product',
+    path: 'flashlight',
     avatar: '',
     children: m_flashlight.value,
   },
   {
     title: 'm_accessories',
-    path: '/product',
+    path: 'accessories',
     avatar: '',
     children: m_accessories.value,
   },
