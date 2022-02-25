@@ -1,11 +1,6 @@
 <template>
   <div class="column justify-end">
-    <q-toolbar class="row justify-end bg-primary text-white">
-      <q-avatar>
-        <img src="~src/assets/imgs/aoi-logo-xs.png" />
-      </q-avatar>
-      <q-separator dark vertical inset class="q-mx-md" />
-      <q-btn flat class="text-white" :label="$t('tMenu_home')" type="a" to="/" />
+    <q-toolbar class="row justify-end bg-white text-grey-10">
       <q-space />
       <q-btn-dropdown
         v-for="(tMenu, indexa) in topMenu"
@@ -39,8 +34,8 @@
 
       <q-space></q-space>
       
-      <q-btn flat class="text-white" icon="shopping_cart" type="a" to="/" />
-      <q-btn flat class="text-white" icon="search" type="a" to="/" />
+      <q-btn flat class="text-white" icon="shopping_cart" type="a" text-color="grey-10" to="/" />
+      <q-btn flat class="text-white" icon="search" type="a" to="/" text-color="grey-10" />
     </q-toolbar>
   </div>
 </template>

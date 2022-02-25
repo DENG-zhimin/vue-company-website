@@ -3,14 +3,12 @@
   <div class="row q-pa-sm">
       <!-- <div class="col row q-pa-sm "> -->
         <div :class=" hotProdCSS ">
-          <div class="col-md-6 col-xs-12 q-pa-md">
-            <router-link to="/products/camera_housing/index">
+          <div class="col-md-6 col-xs-12 row content-center q-pa-md">
               <q-img
                 src="~src/assets/imgs/aoi_housing_octopus.png"
                 fit="contain"
                 height="80%"
               />
-            </router-link>
           </div>
           <div class="col column justify-center items-center text-h4 text-bold text-grey-8 q-pa-md cate-desc  ">
             <div class="q-pa-xl">

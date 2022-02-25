@@ -1,6 +1,12 @@
 <template>
-  <div class="column justify-center q-pa-none q-ma-none" style="height: 36px">
-    <q-toolbar class="row justify-end bg-grey-7 text-white q-my-none q-py-none">
+    <div class="row q-px-sm q-py-xs q-ma-none bg-grey-10 text-white q-my-none q-py-none top-toolbar">
+      <div class="row content-center ">
+        <router-link tag="li" to="/">
+          <q-avatar class="q-ml-lg ">
+            <q-img src="~src/assets/imgs/aoi-logo-xs.png"  />
+          </q-avatar>
+        </router-link>
+      </div>
       <q-space />
       <q-btn-dropdown
         v-for="(tMenu, indexa) in topMenu"
@@ -32,7 +38,7 @@
       
       <q-btn stretch flat type="a" :label="$t('tMenu_aboutUs')" to="/company/aboutus" />
 
-      <q-select
+      <!-- <q-select
         v-model="locale"
         :options="localeOptions"
         dense
@@ -40,11 +46,24 @@
         emit-value
         map-options
         options-dense
-        style="min-width: 120px"
-        class="q-ml-md"
-      />
-    </q-toolbar>
-  </div>
+        label-color="grey-1"
+      /> -->
+        <!-- style="min-width: 120px" -->
+      <div class="row content-center">
+        <q-select 
+          v-model="locale"
+          :options="localeOptions"
+          map-options
+          dark
+          dense
+          borderless
+          emit-value
+          class="q-ml-md"
+          style="min-width: 120px;"
+        ></q-select>
+      </div>
+        <!-- standout="bg-grey-10 text-white" -->
+    </div>
 </template>
 
 <script lang="ts">
@@ -115,7 +134,7 @@ export default defineComponent({
   background-color: $grey-7;
   color: white;
 }
-.q-toolbar {
-  min-height: 36px;
+.top-toolbar {
+  height: 100px;
 }
 </style>

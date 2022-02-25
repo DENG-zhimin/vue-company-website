@@ -1,11 +1,11 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <div>
-        <top-tool-bar />
-        <prod-tool-bar></prod-tool-bar>
-      </div>
     </q-header>
+    <div>
+      <top-tool-bar />
+      <prod-tool-bar />
+    </div>
 
     <q-page-container>
       <router-view />
@@ -33,4 +33,6 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="sass" scoped>
+
+</style>
