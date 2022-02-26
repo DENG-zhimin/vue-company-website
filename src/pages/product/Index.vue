@@ -1,7 +1,12 @@
 <template>
-  <div class="text-grey-1 column items-center">
-    <h2>{{ $t(params.cate) }}</h2>
-    <div class="row justify-center q-gutter-md">
+  <div class="text-grey-1 column justify-start">
+    <div class="row items-start justify-center full-height">
+      <q-img src="~src/assets/imgs/banner-4.jpg" height="250px" />
+    </div>
+    <div class="row justify-center">
+      <h2>{{ $t(params.cate) }}</h2>
+    </div>
+    <div class="row justify-center q-gutter-x-md">
       <q-card class="prod-card" v-for="(prod, index) in prods" :key="index">
         <div class="column items-center" @click="goProd(prod)">
           <span class="col-11">
