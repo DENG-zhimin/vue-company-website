@@ -10,26 +10,40 @@ const routes: RouteRecordRaw[] = [
         path: 'product',
         component: () => import('layouts/Layout.vue'),
         children: [
-          { path: ':id', component: () => import('pages/product/Product.vue'), props: true, name: 'prodInfo' },
-          { path: 'cate/:cate', component: () => import('pages/product/Index.vue'), props: true, name: 'prodCate' },
-        ]
+          {
+            path: ':id',
+            component: () => import('pages/product/Product.vue'),
+            props: true,
+            name: 'prodInfo',
+          },
+          {
+            path: 'cate/:cate',
+            component: () => import('pages/product/Index.vue'),
+            props: true,
+            name: 'prodCate',
+          },
+        ],
       },
       {
         path: 'company',
         component: () => import('layouts/Layout.vue'),
         children: [
-          { path: 'aboutus', component: () => import('pages/company/AboutUs.vue') },
-        ]
+          {
+            path: 'aboutus',
+            component: () => import('pages/company/AboutUs.vue'),
+          },
+        ],
       },
       {
         path: 'gallery',
         component: () => import('layouts/Layout.vue'),
         children: [
-          { path: 'photo/:id',
+          {
+            path: 'photo/:id',
             component: () => import('pages/gallery/Photo.vue'),
-            props: true
+            props: true,
           },
-        ]
+        ],
       },
     ],
   },

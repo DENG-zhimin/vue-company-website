@@ -67,9 +67,9 @@ export default defineComponent({
         .push({
           name: prod.route_name,
           params: {
-            id: prod.id,
-            name: prod.name,
             img: prod.img,
+            name: prod.name,
+            id: prod.id,
           },
         })
         .catch((e) => {
