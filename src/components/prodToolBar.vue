@@ -3,26 +3,42 @@
     <q-toolbar class="row justify-end bg-white text-grey-10">
       <q-space />
 
-      <q-btn stretch flat 
+      <q-btn
+        stretch
+        flat
         v-for="(item, index) in topMenu"
         :key="index"
-        :label="$t(item.title)" 
+        :label="$t(item.title)"
         class="text-h6 text-h4"
-        style="width: fit-content;"
-        @click="goCate(item.path)"
+        style="width: fit-content"
+        @click="goCate(item.title)"
       />
 
       <q-space></q-space>
-      
-      <q-btn flat class="text-white" icon="shopping_cart" type="a" text-color="grey-10" to="/" />
-      <q-btn flat class="text-white" icon="search" type="a" to="/" text-color="grey-10" />
+
+      <q-btn
+        flat
+        class="text-white"
+        icon="shopping_cart"
+        type="a"
+        text-color="grey-10"
+        to="/"
+      />
+      <q-btn
+        flat
+        class="text-white"
+        icon="search"
+        type="a"
+        to="/"
+        text-color="grey-10"
+      />
     </q-toolbar>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from 'vue';
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router';
 import { menu_if } from 'src/models/models';
 import { useI18n } from 'vue-i18n';
 // import prodCateVue from './prodCate.vue';
@@ -129,18 +145,20 @@ const localeOptions = [
 
 export default defineComponent({
   setup() {
-    const router = useRouter()
+    const router = useRouter();
     const { locale } = useI18n({ useScope: 'global' });
     const goCate = (prodRoute: string) => {
-      router.push({
-        name: 'prodCate',
-        params: {
-          cate: prodRoute,
-        }
-      }).catch(e => {
-        console.log(e)
-      })
-    }
+      router
+        .push({
+          name: 'prodCate',
+          params: {
+            cate: prodRoute,
+          },
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    };
     return {
       locale,
       topMenu,
