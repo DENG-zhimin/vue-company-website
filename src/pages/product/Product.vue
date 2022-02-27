@@ -4,20 +4,27 @@
     <div class="row justify-center q-pa-sm q-gutter-x-sm full-width">
       <div class="col-5 row bg-teal-2">
         <!-- <q-img :src="require('/src/assets/imgs/' + img)" fit="fill" /> -->
-        <div class="col-12 column bg-green-2 big-pic">
-          <q-img
-            :src="showImg"
-            fit="scale-down"
-            no-transition
-            @mousemove="enlarge($event)"
-            @mouseover="showPic"
-            @mouseleave="hidePic"
-          ></q-img>
-          <span
+        <div class="col-12 column bg-green-2 small-pic">
+          <q-img :src="showImg" fit="scale-down" no-transition></q-img>
+          <div
+            class="super-mask full-height full-width"
+            :style="'left: ' + -imgWidth + 'px'"
+            @mousemove.stop="enlarge($event)"
+            @mouseover.stop="showPic"
+            @mouseleave.stop="hidePic"
+          ></div>
+          <div
             v-show="showMark"
-            class="mark"
-            :style="'top: ' + markY + 'px; left: ' + markX + 'px'"
-          ></span>
+            class="mask bg-grey-5"
+            :style="'top: ' + markY + 'px; left: ' + (markX - imgWidth) + 'px'"
+          ></div>
+          <div
+            class="big-pic self-start"
+            v-show="showMark"
+            :style="'left: -' + (imgWidth + 100) + 'px'"
+          >
+            <q-img :src="showImg"></q-img>
+          </div>
         </div>
         <div class="row justify-center q-pa-sm bg-green-3 nav-box">
           <div
@@ -127,33 +134,37 @@ export default defineComponent({
     const markX = ref(0);
     const markY = ref(0);
 
-    // type myDiv = {
-    //   show: () => void;
-    // };
-    // refs
     const showMark = ref(false);
+
+    // small img width
+    const imgWidth = ref(0);
+    type ImgIf = HTMLImageElement;
     // extends Event type to access pointer position
     type mouseEvent = Event & {
       offsetX: number;
       offsetY: number;
+      target: ImgIf;
     };
 
     // show up the large pic and mark box
     const showPic = () => {
       showMark.value = true;
+      console.log(showMark.value);
     };
 
     // hide the large pic and mark box
     const hidePic = () => {
       showMark.value = false;
+      console.log(showMark.value);
     };
 
     // enlarge pic
     const enlarge = (e: mouseEvent) => {
-      markX.value = e.offsetX - 600;
+      imgWidth.value = e.target.offsetWidth;
+      markX.value = e.offsetX - imgWidth.value - 50;
+      if (markX.value < -imgWidth.value) markX.value = -imgWidth.value;
       markY.value = e.offsetY - 50;
-      // console.log('offsetX is: ' + e.offsetX.toString());
-      console.log(e.target);
+      if (markY.value < 0) markY.value = 0;
     };
     // change the display img
     const changePic = (num: string) => {
@@ -186,6 +197,7 @@ export default defineComponent({
       showMark,
       markX,
       markY,
+      imgWidth,
     };
   },
 });
@@ -201,16 +213,27 @@ export default defineComponent({
 .nav-box .q-img:hover
   cursor: pointer
 
-.big-pic
+.small-pic
   min-height: 300px
   height: 400px
 
-.mark
+.big-pic,
+.big-pic .q-img
+  height: 500px
+  width: 500px
+  z-index: 999
+  position: relative
+
+.mask
   width: 100px
   height: 100px
-  border: 2px yellow solid
+  z-index: 9900
+  position: relative
+  opacity: 0.5
+  float: left
+
+.super-mask
+  top: 0px
   z-index: 9999
-  // left: var(--markX)
-  // top: var(--markY)
   position: relative
 </style>
