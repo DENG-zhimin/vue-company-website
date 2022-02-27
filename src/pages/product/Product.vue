@@ -2,13 +2,34 @@
   <div class="text-grey-1 column items-center">
     <h1>{{ name }}</h1>
     <div class="row justify-center q-pa-sm q-gutter-x-sm full-width">
-      <div class="col-5 column bg-teal-2">
-        <q-img
-          :src="require('/src/assets/imgs/' + img)"
-          height="300px"
-          width="95%"
-          fit="scale-down"
-        />
+      <div class="col-5 row bg-teal-2">
+        <!-- <q-img :src="require('/src/assets/imgs/' + img)" fit="fill" /> -->
+        <div class="col-12 column bg-green-2 big-pic">
+          <q-img
+            :src="showImg"
+            fit="scale-down"
+            no-transition
+            @mousemove="enlarge($event)"
+            @mouseover="showPic"
+            @mouseleave="hidePic"
+          ></q-img>
+          <span
+            v-show="showMark"
+            class="mark"
+            :style="'top: ' + markY + 'px; left: ' + markX + 'px'"
+          ></span>
+        </div>
+        <div class="row justify-center q-pa-sm bg-green-3 nav-box">
+          <div
+            v-for="(num, index) in img_num"
+            :key="index"
+            class="img-box q-ma-sm"
+            @mouseover.stop="changePic(num)"
+            @click="changePic(num)"
+          >
+            <q-img :src="require('/src/assets/imgs/story' + num + '.png')" />
+          </div>
+        </div>
       </div>
       <div class="col column bg-grey-3 text-grey-8 q-pl-md">
         <div class="col-12">
@@ -74,6 +95,7 @@
   </div>
 </template>
 <script lang="ts">
+declare function require(img: string): string; // declare require function
 import { ref, defineComponent, onMounted, onBeforeMount } from 'vue';
 import { useRoute /* , useRouter */ } from 'vue-router';
 
@@ -98,9 +120,46 @@ export default defineComponent({
 
     const tab = ref('details');
     const params = route.params;
+    const showImg = ref(require('/src/assets/imgs/gallery/photo1.jpg'));
+    const img_num = ['1', '2', '3', '4', '5', '6' /* , '7' */];
 
+    // mark box x position
+    const markX = ref(0);
+    const markY = ref(0);
+
+    // type myDiv = {
+    //   show: () => void;
+    // };
+    // refs
+    const showMark = ref(false);
+    // extends Event type to access pointer position
+    type mouseEvent = Event & {
+      offsetX: number;
+      offsetY: number;
+    };
+
+    // show up the large pic and mark box
+    const showPic = () => {
+      showMark.value = true;
+    };
+
+    // hide the large pic and mark box
+    const hidePic = () => {
+      showMark.value = false;
+    };
+
+    // enlarge pic
+    const enlarge = (e: mouseEvent) => {
+      markX.value = e.offsetX - 600;
+      markY.value = e.offsetY - 50;
+      // console.log('offsetX is: ' + e.offsetX.toString());
+      console.log(e.target);
+    };
+    // change the display img
+    const changePic = (num: string) => {
+      showImg.value = require('/src/assets/imgs/gallery/photo' + num + '.jpg');
+    };
     onBeforeMount(() => {
-      // if (route.params)
       if (typeof params.img === 'undefined') {
         /* router
           .push({
@@ -114,9 +173,44 @@ export default defineComponent({
     onMounted(() => {
       // console.log('I got route');
     });
+    const slide = ref('1');
     return {
+      showImg,
       tab,
+      slide,
+      img_num,
+      changePic,
+      enlarge,
+      showPic,
+      hidePic,
+      showMark,
+      markX,
+      markY,
     };
   },
 });
 </script>
+<style lang="sass" scoped>
+.img-box
+  height: 60px
+  width: 60px
+
+.nav-box
+  overflow: scroll
+
+.nav-box .q-img:hover
+  cursor: pointer
+
+.big-pic
+  min-height: 300px
+  height: 400px
+
+.mark
+  width: 100px
+  height: 100px
+  border: 2px yellow solid
+  z-index: 9999
+  // left: var(--markX)
+  // top: var(--markY)
+  position: relative
+</style>
