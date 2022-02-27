@@ -18,12 +18,25 @@
             class="mask bg-grey-5"
             :style="'top: ' + markY + 'px; left: ' + (markX - imgWidth) + 'px'"
           ></div>
-          <div
+          <!-- <div
             class="full-height full-width big-pic"
             v-show="showMark"
             :style="'left: -' + (imgWidth + 110) + 'px;'"
           >
             <img :src="showImg" alt="Product Image" :style="bigImgStyle" />
+          </div> -->
+          <div
+            class="big-pic full-height full-width"
+            v-show="showMark"
+            :style="'left: -' + (imgWidth + 94) + 'px;'"
+          >
+            <q-img
+              :src="showImg"
+              v-model:position="imgPos"
+              height="400px"
+              width="400px"
+              fit="none"
+            />
           </div>
         </div>
         <div class="row justify-center q-pa-sm bg-green-3 nav-box">
@@ -103,8 +116,8 @@
 </template>
 <script lang="ts">
 declare function require(img: string): string; // declare require function
-import { ref, defineComponent, onMounted, onBeforeMount } from 'vue';
-import { useRoute /* , useRouter */ } from 'vue-router';
+import { ref, defineComponent /* , onMounted, onBeforeMount  */ } from 'vue';
+// import { useRoute /* , useRouter */ } from 'vue-router';
 
 export default defineComponent({
   props: {
@@ -122,16 +135,14 @@ export default defineComponent({
     },
   },
   setup() {
-    const route = useRoute();
+    // const route = useRoute();
     // const router = useRouter();
     const tab = ref('details');
-    const params = route.params;
     const showImg = ref(require('/src/assets/imgs/gallery/photo1.jpg'));
     const img_num = ['1', '2', '3', '4', '5', '6' /* , '7' */];
 
-    const bigImgStyle = ref('');
-    // current img num
-    const curImgNum = ref('1');
+    const imgPos = ref('');
+
     // mark box x position
     const markX = ref(0);
     const markY = ref(0);
@@ -141,6 +152,7 @@ export default defineComponent({
     // small img width
     const imgWidth = ref(0);
     type ImgIf = HTMLImageElement;
+
     // extends Event type to access pointer position
     type mouseEvent = Event & {
       offsetX: number;
@@ -151,20 +163,19 @@ export default defineComponent({
     // show up the large pic and mark box
     const showPic = () => {
       showMark.value = true;
-      console.log(showMark.value);
     };
 
     // hide the large pic and mark box
     const hidePic = () => {
       showMark.value = false;
-      console.log(showMark.value);
     };
 
     // enlarge pic
     const enlarge = (e: mouseEvent) => {
       // used to determain the left position of the large img.
+      // the size of small pic box (super mask)
       imgWidth.value = e.target.offsetWidth;
-      // const imgheight = e.target.offsetHeight;
+      const imgheight = ref(e.target.offsetHeight);
 
       // get mask position, mask length = 100, offset 50
       markX.value = e.offsetX - imgWidth.value - 50;
@@ -172,52 +183,19 @@ export default defineComponent({
       markY.value = e.offsetY - 50;
       if (markY.value < 0) markY.value = 0;
 
-      // get image rect position
-      // the img rect ratio must be syncronized with image position move
-      const rectTop = e.offsetY * 1.5;
-      const rectRight = e.offsetX * 1.5 + 500;
-      const rectBottom = e.offsetY * 1.5 + 500;
-      const rectLeft = e.offsetX * 1.5;
+      // get position percent ratio
+      imgPos.value =
+        ((e.offsetX / imgWidth.value) * 100).toFixed().toString() +
+        '% ' +
+        ((e.offsetY / imgheight.value) * 100).toFixed().toString() +
+        '%';
 
-      // get image position
-      const leftPos = ' left: -' + (e.offsetX * 1.5 - 20).toString() + 'px; ';
-      const topPos = 'top: -' + (e.offsetY * 1.5).toString() + 'px; ';
-
-      // change big pic
-      bigImgStyle.value =
-        'position: absolute; clip: rect(' +
-        // 'clip: rect(' +
-        rectTop.toString() +
-        'px, ' +
-        rectRight.toString() +
-        'px, ' +
-        rectBottom.toString() +
-        'px, ' +
-        rectLeft.toString() +
-        'px); ';
-
-      bigImgStyle.value += leftPos + topPos;
-      console.log(bigImgStyle);
+      // console.log(imgPos.value);
     };
     // change the display img
     const changePic = (num: string) => {
-      curImgNum.value = num;
       showImg.value = require('/src/assets/imgs/gallery/photo' + num + '.jpg');
     };
-    onBeforeMount(() => {
-      if (typeof params.img === 'undefined') {
-        /* router
-          .push({
-            path: '/',
-          })
-          .catch((e) => {
-            console.log(e);
-          }); */
-      }
-    });
-    onMounted(() => {
-      // console.log('I got route');
-    });
     return {
       showImg,
       tab,
@@ -230,7 +208,7 @@ export default defineComponent({
       markX,
       markY,
       imgWidth,
-      bigImgStyle,
+      imgPos,
     };
   },
 });
@@ -251,6 +229,7 @@ export default defineComponent({
   height: 400px
 
 .big-pic
+  // max-height: 400px
   z-index: 999
   position: relative
   top: 0px
