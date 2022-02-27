@@ -19,11 +19,16 @@
             :style="'top: ' + markY + 'px; left: ' + (markX - imgWidth) + 'px'"
           ></div>
           <div
-            class="big-pic self-start"
+            class="big-pic full-height full-width"
             v-show="showMark"
             :style="'left: -' + (imgWidth + 100) + 'px'"
           >
-            <q-img :src="showImg"></q-img>
+            <img
+              class="big-pic"
+              :src="showImg"
+              alt="Product"
+              style="clip: rect(0px, 100px, 100px, 0px)"
+            />
           </div>
         </div>
         <div class="row justify-center q-pa-sm bg-green-3 nav-box">
@@ -217,8 +222,7 @@ export default defineComponent({
   min-height: 300px
   height: 400px
 
-.big-pic,
-.big-pic .q-img
+.big-pic
   height: 500px
   width: 500px
   z-index: 999
