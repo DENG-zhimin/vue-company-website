@@ -19,16 +19,11 @@
             :style="'top: ' + markY + 'px; left: ' + (markX - imgWidth) + 'px'"
           ></div>
           <div
-            class="big-pic full-height full-width"
+            class="full-height full-width big-pic"
             v-show="showMark"
-            :style="'left: -' + (imgWidth + 100) + 'px'"
+            :style="'left: -' + (imgWidth + 110) + 'px;'"
           >
-            <img
-              class="big-pic"
-              :src="showImg"
-              alt="Product"
-              style="clip: rect(0px, 100px, 100px, 0px)"
-            />
+            <img :src="showImg" alt="Product Image" :style="bigImgStyle" />
           </div>
         </div>
         <div class="row justify-center q-pa-sm bg-green-3 nav-box">
@@ -129,12 +124,14 @@ export default defineComponent({
   setup() {
     const route = useRoute();
     // const router = useRouter();
-
     const tab = ref('details');
     const params = route.params;
     const showImg = ref(require('/src/assets/imgs/gallery/photo1.jpg'));
     const img_num = ['1', '2', '3', '4', '5', '6' /* , '7' */];
 
+    const bigImgStyle = ref('');
+    // current img num
+    const curImgNum = ref('1');
     // mark box x position
     const markX = ref(0);
     const markY = ref(0);
@@ -166,13 +163,44 @@ export default defineComponent({
     // enlarge pic
     const enlarge = (e: mouseEvent) => {
       imgWidth.value = e.target.offsetWidth;
+      // const imgheight = e.target.offsetHeight;
+
+      // get mask position, mask length = 100, offset 50
       markX.value = e.offsetX - imgWidth.value - 50;
       if (markX.value < -imgWidth.value) markX.value = -imgWidth.value;
       markY.value = e.offsetY - 50;
       if (markY.value < 0) markY.value = 0;
+
+      // get image rect position
+
+      const rectTop = e.offsetY;
+      const rectRight = e.offsetX + 500;
+      const rectBottom = e.offsetY + 500;
+      const rectLeft = e.offsetX;
+
+      // get image position
+      const leftPos = ' left: -' + (e.offsetX - 20).toString() + 'px; ';
+      const topPos = 'top: -' + e.offsetY.toString() + 'px; ';
+
+      // change big pic
+      bigImgStyle.value =
+        'position: absolute; clip: rect(' +
+        // 'clip: rect(' +
+        rectTop.toString() +
+        'px, ' +
+        rectRight.toString() +
+        'px, ' +
+        rectBottom.toString() +
+        'px, ' +
+        rectLeft.toString() +
+        'px); ';
+
+      bigImgStyle.value += leftPos + topPos;
+      // console.log(showImg.value);
     };
     // change the display img
     const changePic = (num: string) => {
+      curImgNum.value = num;
       showImg.value = require('/src/assets/imgs/gallery/photo' + num + '.jpg');
     };
     onBeforeMount(() => {
@@ -189,11 +217,9 @@ export default defineComponent({
     onMounted(() => {
       // console.log('I got route');
     });
-    const slide = ref('1');
     return {
       showImg,
       tab,
-      slide,
       img_num,
       changePic,
       enlarge,
@@ -203,6 +229,7 @@ export default defineComponent({
       markX,
       markY,
       imgWidth,
+      bigImgStyle,
     };
   },
 });
@@ -223,10 +250,9 @@ export default defineComponent({
   height: 400px
 
 .big-pic
-  height: 500px
-  width: 500px
   z-index: 999
   position: relative
+  top: 0px
 
 .mask
   width: 100px
