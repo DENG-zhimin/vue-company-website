@@ -162,6 +162,7 @@ export default defineComponent({
 
     // enlarge pic
     const enlarge = (e: mouseEvent) => {
+      // used to determain the left position of the large img.
       imgWidth.value = e.target.offsetWidth;
       // const imgheight = e.target.offsetHeight;
 
@@ -172,15 +173,15 @@ export default defineComponent({
       if (markY.value < 0) markY.value = 0;
 
       // get image rect position
-
-      const rectTop = e.offsetY;
-      const rectRight = e.offsetX + 500;
-      const rectBottom = e.offsetY + 500;
-      const rectLeft = e.offsetX;
+      // the img rect ratio must be syncronized with image position move
+      const rectTop = e.offsetY * 1.5;
+      const rectRight = e.offsetX * 1.5 + 500;
+      const rectBottom = e.offsetY * 1.5 + 500;
+      const rectLeft = e.offsetX * 1.5;
 
       // get image position
-      const leftPos = ' left: -' + (e.offsetX - 20).toString() + 'px; ';
-      const topPos = 'top: -' + e.offsetY.toString() + 'px; ';
+      const leftPos = ' left: -' + (e.offsetX * 1.5 - 20).toString() + 'px; ';
+      const topPos = 'top: -' + (e.offsetY * 1.5).toString() + 'px; ';
 
       // change big pic
       bigImgStyle.value =
@@ -196,7 +197,7 @@ export default defineComponent({
         'px); ';
 
       bigImgStyle.value += leftPos + topPos;
-      // console.log(showImg.value);
+      console.log(bigImgStyle);
     };
     // change the display img
     const changePic = (num: string) => {
