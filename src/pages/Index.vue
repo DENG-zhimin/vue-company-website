@@ -68,6 +68,7 @@
     <prod-cate />
     <videocase />
     <showcase />
+    <partners />
   </q-page>
 </template>
 
@@ -77,6 +78,7 @@ import hotProd from 'src/components/hotProd.vue';
 import prodCate from 'src/components/prodCate.vue';
 import showcase from 'src/components/Showcase.vue';
 import Videocase from 'src/components/Videocase.vue';
+import partners from 'src/components/Partners.vue';
 import { defineComponent, ref } from 'vue';
 
 const banner1 = require('src/assets/imgs/banner-1.jpg');
@@ -104,7 +106,7 @@ const sliders = [
 ];
 export default defineComponent({
   name: 'PageIndex',
-  components: { hotProd, prodCate, showcase, Videocase },
+  components: { hotProd, prodCate, showcase, Videocase, partners },
   methods: {},
   mounted() {
     // console.log(ba1);

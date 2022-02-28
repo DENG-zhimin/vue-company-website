@@ -1,7 +1,7 @@
 <template>
     
     <div class="col column bg-grey-4 q-ma-sm showcase">
-      <div class="col row justify-center content-center text-h4 text-bold text-accent q-my-md">
+      <div class="col row justify-center content-center text-h4 text-bold text-grey-8 q-my-md">
         Best Stories
       </div>
       <div class="col-10 row justify-center ">
@@ -41,7 +41,7 @@ export default defineComponent({
   width: 120px
 
 .img-box:hover
-  transform: translate(0, -5px)
-  box-shadow: 10px 8px 10px $grey-7
+  // transform: translate(0, -5px)
+  box-shadow: 0px 0px 5px 5px $grey-7
 
 </style>
