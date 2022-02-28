@@ -179,9 +179,17 @@ export default defineComponent({
 
       // get mask position, mask length = 100, offset 50
       markX.value = e.offsetX - imgWidth.value - 50;
+
+      // limit the mask not exceed the img border X
       if (markX.value < -imgWidth.value) markX.value = -imgWidth.value;
+      if (markX.value > - 100) markX.value = -100;
+
+      // limit the mask not exceed the img border Y
       markY.value = e.offsetY - 50;
+      // top
       if (markY.value < 0) markY.value = 0;
+      // bottom
+      if (markY.value > 300) markY.value = 300;
 
       // get position percent ratio
       imgPos.value =
