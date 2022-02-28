@@ -33,8 +33,8 @@
             <q-img
               :src="showImg"
               v-model:position="imgPos"
-              height="400px"
-              width="400px"
+              height="500px"
+              width="500px"
               fit="none"
             />
           </div>
