@@ -2,9 +2,9 @@
   <div class="text-grey-1 column items-center">
     <h1>{{ name }}</h1>
     <div class="row justify-center q-pa-sm q-gutter-x-sm full-width">
-      <div class="col-5 row bg-teal-2">
+      <div class="col-5 row bg-grey-9">
         <!-- <q-img :src="require('/src/assets/imgs/' + img)" fit="fill" /> -->
-        <div class="col-12 column bg-green-2 small-pic">
+        <div class="col-12 column small-pic">
           <q-img :src="showImg" fit="scale-down" no-transition></q-img>
           <div
             class="super-mask full-height full-width"
@@ -26,7 +26,7 @@
             <img :src="showImg" alt="Product Image" :style="bigImgStyle" />
           </div> -->
           <div
-            class="big-pic full-height full-width"
+            class="big-pic full-height full-width q-mt-sm"
             v-show="showMark"
             :style="'left: -' + (imgWidth + 94) + 'px;'"
           >
@@ -39,16 +39,19 @@
             />
           </div>
         </div>
-        <div class="row justify-center q-pa-sm bg-green-3 nav-box">
-          <div
+        <div class="row justify-center q-gutter-sm q-pa-sm q-mt-sm full-width  nav-box">
+          <!-- <div
+          > -->
+            <q-img 
             v-for="(num, index) in img_num"
             :key="index"
-            class="img-box q-ma-sm"
+            class="img-box  "
             @mouseover.stop="changePic(num)"
             @click="changePic(num)"
-          >
-            <q-img :src="require('/src/assets/imgs/story' + num + '.png')" />
-          </div>
+
+            :src="require('/src/assets/imgs/story' + num + '.png')" 
+            />
+          <!-- </div> -->
         </div>
       </div>
       <div class="col column bg-grey-3 text-grey-8 q-pl-md">
@@ -139,7 +142,7 @@ export default defineComponent({
     // const router = useRouter();
     const tab = ref('details');
     const showImg = ref(require('/src/assets/imgs/gallery/photo1.jpg'));
-    const img_num = ['1', '2', '3', '4', '5', '6' /* , '7' */];
+    const img_num = ['1', '2', '3', '4', '5', '6' , '7'];
 
     const imgPos = ref('');
 
@@ -226,8 +229,11 @@ export default defineComponent({
   height: 60px
   width: 60px
 
+.img-box:hover
+  box-shadow: 0px 0px 3px 3px $grey-4
+
 .nav-box
-  overflow: scroll
+  border: solid 1px $grey-3
 
 .nav-box .q-img:hover
   cursor: pointer
@@ -240,7 +246,7 @@ export default defineComponent({
   // max-height: 400px
   z-index: 999
   position: relative
-  top: 0px
+  top: -8px
 
 .mask
   width: 100px
