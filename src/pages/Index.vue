@@ -17,7 +17,7 @@
           :img-src="slide.img_src"
           style="padding: 30px 130px"
         >
-          <router-link :to="slide.path"
+          <router-link :to="{ name: 'prodCate', params: { cate: slide.cate } }"
             ><div class="full-width full-height"></div
           ></router-link>
         </q-carousel-slide>
@@ -89,19 +89,19 @@ const banner4 = require('src/assets/imgs/banner-4.jpg');
 const sliders = [
   {
     img_src: banner1,
-    path: '/products/camera_housing/index',
+    cate: 'strobes'
   },
   {
     img_src: banner2,
-    path: '/products/camera_housing/index',
+    cate: 'lighting'
   },
   {
     img_src: banner3,
-    path: '/products/camera_housing/index',
+    cate: 'lens'
   },
   {
     img_src: banner4,
-    path: '/products/camera_housing/index',
+    cate: 'm_housing'
   },
 ];
 export default defineComponent({

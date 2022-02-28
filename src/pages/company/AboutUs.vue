@@ -1,6 +1,6 @@
 <template >
   <div>
-    <h1 class="row justify-center">{{$t('tMenu_aboutUs')}} </h1>
+    <h1 class="row justify-center text-grey-4">{{$t('tMenu_aboutUs')}} </h1>
 
     <div class="q-my-md">
     </div>
