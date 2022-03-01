@@ -114,11 +114,12 @@
         </q-tab-panels>
       </q-card>
     </div>
-    <div class="row justify-center q-pa-sm full-width bg-green-3 q-ma-md">
+    <!-- <div class="row justify-center q-pa-sm full-width bg-green-3 q-ma-md">
       <div class="row">
         <h2>related parts</h2>
       </div>
-    </div>
+    </div> -->
+    <Related-parts />
     <div class="row justify-center q-pa-sm full-width bg-green-2">
       <div class="row">
         <h2>other intrested products</h2>
@@ -129,9 +130,11 @@
 <script lang="ts">
 declare function require(img: string): string; // declare require function
 import { ref, defineComponent /* , onMounted, onBeforeMount  */ } from 'vue';
+import RelatedParts from './RelatedParts.vue';
 // import { useRoute /* , useRouter */ } from 'vue-router';
 
 export default defineComponent({
+  components: { RelatedParts },
   props: {
     id: {
       type: String,
