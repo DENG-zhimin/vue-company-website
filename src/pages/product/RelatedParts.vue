@@ -1,18 +1,21 @@
 <template>
-  <div class="column shadow-1 q-pa-sm q-pl-md q-ma-md full-width  ">
-   <div class="text-h6 q-mb-md ">related partes</div> 
-   <div class="row q-gutter-md justify-start ">
-     <router-link 
-        v-for="(prod, index) in parts"
-        :key="index"
-        tag="li"
-        class="shadow-1 hover-5"
-        :to="{ name: 'prodInfo', params: {id: prod.id, name: prod.name, img: prod.img } }"
-     >
-      <q-img
-        width="80px" height="80px" fit="scale-down" :src="require('/src/assets/imgs/' + prod.img)" ></q-img>
-      </router-link>
-   </div>
+  <div class="column q-pa-sm q-ma-md full-width  ">
+    <div class="column q-pa-md radius-5 shadow-1 ">
+      <div class="text-h6 q-mb-md ">related partes</div> 
+      <hr />
+      <div class="row q-gutter-md justify-start ">
+        <router-link 
+            v-for="(prod, index) in parts"
+            :key="index"
+            tag="li"
+            class="shadow-1 hover-5"
+            :to="{ name: 'prodInfo', params: {id: prod.id, name: prod.name, img: prod.img } }"
+        >
+          <q-img
+            width="80px" height="80px" fit="scale-down" :src="require('/src/assets/imgs/' + prod.img)" ></q-img>
+          </router-link>
+      </div>
+    </div>
   </div>
 
 </template>
