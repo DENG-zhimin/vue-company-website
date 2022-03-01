@@ -1,8 +1,8 @@
 {
-  "name": "oa",
+  "name": "AOI LTD. website",
   "version": "0.0.1",
-  "description": "OA front-end",
-  "productName": "OA front-end",
+  "description": "AOI website",
+  "productName": "AOI website",
   "author": "DENG Zhimin",
   "private": true,
   "scripts": {
