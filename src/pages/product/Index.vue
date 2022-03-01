@@ -1,5 +1,5 @@
 <template>
-  <div class="text-grey-1 column justify-start">
+  <div class="text-grey-8 bg-grey-2 q-pb-lg column justify-start">
     <div class="row items-start justify-center full-height">
       <q-img src="~src/assets/imgs/banner-4.jpg" height="250px" />
     </div>

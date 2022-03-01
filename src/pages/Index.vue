@@ -1,5 +1,5 @@
 <template>
-  <q-page class="items-center justify-evenly">
+  <q-page class="items-center justify-evenly bg-dark q-pb-md">
     <div id="carousel" class="">
       <q-carousel
         swipeable
@@ -123,4 +123,6 @@ export default defineComponent({
 });
 </script>
 
-<style lang="sass" scoped></style>
+<style lang="sass" scoped>
+
+</style>

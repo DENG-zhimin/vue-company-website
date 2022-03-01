@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-evenly q-mt-xl q-pa-xl text-grey-8 bg-grey-4">
+  <div class="row justify-evenly q-mt-lg q-pa-xl text-grey-8 bg-grey-4">
     <div 
       class="col"
       style="max-width: 350px"

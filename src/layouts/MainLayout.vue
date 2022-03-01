@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh Lpr lFf" >
     <q-header elevated>
     </q-header>
     <div>
@@ -7,7 +7,7 @@
       <prod-tool-bar />
     </div>
 
-    <q-page-container>
+    <q-page-container >
       <router-view />
       <my-footer />
     </q-page-container>
