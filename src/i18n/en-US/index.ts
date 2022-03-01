@@ -26,10 +26,12 @@ export default {
   exploreSplendidMoments: 'Explore Splendid Moments',
   bestStory: 'best story',
 
-
   company: 'company',
   buy: 'buy',
   supports: 'supports',
   newsAndStories: 'news and stories',
   keepInformed: 'keep informed',
+
+  wonderful_artworks: 'Wonderful Artworks',
+  best_partners: 'Best Partners',
 };

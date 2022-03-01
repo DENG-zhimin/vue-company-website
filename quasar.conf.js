@@ -158,9 +158,10 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: 'OA front-end',
-        short_name: 'OA front-end',
-        description: 'OA front-end',
+        name: 'AOI LTD. HOMEPAGE',
+        short_name: 'AOI LTD.',
+        description:
+          'AOI LTD. professional underwater photography equipment manufacturer.',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

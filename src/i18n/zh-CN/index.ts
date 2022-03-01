@@ -26,10 +26,12 @@ export default {
   exploreSplendidMoments: '精彩时刻',
   bestStory: '最佳作品',
 
-
   company: '公司',
   buy: '购买',
   supports: '支持',
   newsAndStories: '新闻与作品',
   keepInformed: '与时俱进',
+
+  wonderful_artworks: '精彩作品',
+  best_partners: '最佳伙伴',
 };

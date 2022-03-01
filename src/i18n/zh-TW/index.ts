@@ -18,7 +18,6 @@ export default {
   m_strobes: '閃光燈',
   m_accessories: '配件',
 
-
   cameraHousing: '防水殼',
   strobe: '閃光燈',
   cameraPorts: '鏡頭',
@@ -32,4 +31,7 @@ export default {
   supports: '支持',
   newsAndStories: '新聞與作品',
   keepInformed: '與時俱進',
+
+  wonderful_artworks: '精彩作品',
+  best_partners: '最佳夥伴',
 };
