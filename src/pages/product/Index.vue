@@ -7,7 +7,7 @@
       <h2>{{ $t(params.cate) }}</h2>
     </div>
     <div class="row justify-center q-pa-md shadow-1">
-      <div class="row shadow-1 q-ma-md q-pa-sm" v-for="(prod, index) in prods" :key="index" >
+      <div class="row shadow-1 q-ma-md q-pa-sm prod-box" v-for="(prod, index) in prods" :key="index" >
         <!-- <div class="separator bg-grey-5 q-mx-md"></div> -->
         <router-link class="row justify-center content-center card-img q-my-lg q-py-lg " tag="li" 
           :to=" { name: prod.route_name, params: {id: prod.id, name: prod.name, img: prod.img } } " > 
@@ -134,6 +134,9 @@ export default defineComponent({
   width: 220px
   max-width: 220px
   max-height: 220px
+
+.prod-box:hover
+  box-shadow: 0px 0px 5px 5px $grey-6
 
 .separator
   width: 1px
