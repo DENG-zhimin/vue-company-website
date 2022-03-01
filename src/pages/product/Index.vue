@@ -6,23 +6,20 @@
     <div class="row justify-center">
       <h2>{{ $t(params.cate) }}</h2>
     </div>
-    <div class="row justify-center q-gutter-x-md">
-      <q-card class="prod-card" v-for="(prod, index) in prods" :key="index">
-        <div class="column items-center" @click="goProd(prod)">
-          <span class="col-11">
-            <q-img
-              :src="require('/src/assets/imgs/' + prod.img)"
-              class="card-img"
-            />
-          </span>
-
-          <div class="col">
-            <q-card-section>
-              <div class="text-h6 text-center text-grey-8">{{ prod.name }}</div>
-            </q-card-section>
-          </div>
-        </div>
-      </q-card>
+    <div class="row justify-center q-pa-md shadow-1">
+      <div class="row shadow-1 q-ma-md q-pa-sm" v-for="(prod, index) in prods" :key="index" >
+        <!-- <div class="separator bg-grey-5 q-mx-md"></div> -->
+        <router-link class="row justify-center content-center card-img q-my-lg q-py-lg " tag="li" 
+          :to=" { name: prod.route_name, params: {id: prod.id, name: prod.name, img: prod.img } } " > 
+          <q-img
+            :src="require('/src/assets/imgs/' + prod.img)"
+            class="card-img"
+          />
+          <div class="text-h6 text-center text-grey-8">{{ prod.name }}</div>
+        </router-link>
+        
+        <!-- <div class="separator bg-grey-5 q-mx-md"></div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -31,6 +28,42 @@ import { defineComponent, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const prods = [
+  {
+    name: 'AOI-01',
+    id: '1531',
+    img: 'aoi_uh-epl10-gry.png',
+    route_name: 'prodInfo',
+  },
+  {
+    name: 'AOI-02',
+    id: '1532',
+    img: 'aoi_uh-epl10-gry.png',
+    route_name: 'prodInfo',
+  },
+  {
+    name: 'AOI-03',
+    id: '1533',
+    img: 'aoi_housing_octopus.png',
+    route_name: 'prodInfo',
+  },
+  {
+    name: 'AOI-01',
+    id: '1531',
+    img: 'aoi_uh-epl10-gry.png',
+    route_name: 'prodInfo',
+  },
+  {
+    name: 'AOI-02',
+    id: '1532',
+    img: 'aoi_uh-epl10-gry.png',
+    route_name: 'prodInfo',
+  },
+  {
+    name: 'AOI-03',
+    id: '1533',
+    img: 'aoi_housing_octopus.png',
+    route_name: 'prodInfo',
+  },
   {
     name: 'AOI-01',
     id: '1531',
@@ -101,4 +134,8 @@ export default defineComponent({
   width: 220px
   max-width: 220px
   max-height: 220px
+
+.separator
+  width: 1px
+  // border: solid 1px 
 </style>

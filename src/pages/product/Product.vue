@@ -1,5 +1,5 @@
 <template>
-  <div class="text-grey-1 column items-center">
+  <div class="text-grey-9 column items-center">
     <h1>{{ name }}</h1>
     <div class="row justify-center q-pa-sm q-gutter-x-sm full-width">
       <div class="col-5 row bg-grey-9">
@@ -54,9 +54,18 @@
           <!-- </div> -->
         </div>
       </div>
-      <div class="col column bg-grey-3 text-grey-8 q-pl-md">
+      <div class="col column text-grey-8 q-pl-md  feature-box shadow-1">
         <div class="col-12">
           <h2>Features</h2>
+          <h5>Features</h5>
+          <h5>Features</h5>
+          <h5>Features</h5>
+          <h5>Features</h5>
+          <h5>Features</h5>
+          <h5>Features</h5>
+          <h5>Features</h5>
+          <h5>Features</h5>
+          <h5>Features</h5>
           <h5>Features</h5>
           <h5>Features</h5>
           <h5>Features</h5>
@@ -260,4 +269,8 @@ export default defineComponent({
   top: 0px
   z-index: 9999
   position: relative
+
+.feature-box
+  overflow: hidden
+  max-height: 500px
 </style>

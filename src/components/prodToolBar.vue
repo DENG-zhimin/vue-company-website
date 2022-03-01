@@ -1,6 +1,6 @@
 <template>
   <div class="column justify-end">
-    <q-toolbar class="row justify-end bg-white text-grey-10">
+    <q-toolbar class="row justify-end bg-white text-grey-10 shadow-2">
       <q-space />
 
       <q-btn
