@@ -8,7 +8,7 @@
         :autoplay="autoplay"
         ref="topCarousel"
         infinite
-        height="300px"
+        height="500px"
       >
         <q-carousel-slide
           v-for="(slide, index) in sliders"
