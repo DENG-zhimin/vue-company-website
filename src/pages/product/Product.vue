@@ -114,20 +114,19 @@
         </q-tab-panels>
       </q-card>
     </div>
-    <Related-parts />
-    <Interested />
-
+    <related-parts />
+    <interested-prod />
   </div>
 </template>
 <script lang="ts">
 declare function require(img: string): string; // declare require function
 import { ref, defineComponent /* , onMounted, onBeforeMount  */ } from 'vue';
-import Interested from './Interested.vue';
+import InterestedProd from './InterestedProd.vue';
 import RelatedParts from './RelatedParts.vue';
 // import { useRoute /* , useRouter */ } from 'vue-router';
 
 export default defineComponent({
-  components: { RelatedParts, Interested },
+  components: { RelatedParts, InterestedProd },
   props: {
     id: {
       type: String,
