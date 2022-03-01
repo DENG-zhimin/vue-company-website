@@ -30,7 +30,7 @@ import { defineComponent, ref } from 'vue';
 const partners = ref([
   {
     name: 'Olympus',
-    path: 'http://www.olympus.com',
+    path: 'http://www.olympus-global.com',
     logo: 'olympus-logo.gif',
   },
   {
