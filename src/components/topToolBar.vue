@@ -35,7 +35,7 @@
           </q-item-section>
         </q-item>
       </q-btn-dropdown>
-      <q-btn stretch flat :label="$t('tMenu_news')" type="a" to="/" />
+      <q-btn stretch flat :label="$t('tMenu_news')" type="a" to="/news" />
       
       <q-btn stretch flat type="a" :label="$t('tMenu_aboutUs')" to="/company/aboutus" />
 
