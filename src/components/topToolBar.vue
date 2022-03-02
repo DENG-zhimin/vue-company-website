@@ -1,10 +1,10 @@
 <template>
     <div class="row q-px-sm q-py-xs q-ma-none bg-grey-10 text-white q-my-none q-py-none top-toolbar">
-      <div class="row content-center ">
+      <div class="row content-center q-ml-lg">
         <router-link tag="li" to="/">
-          <q-avatar class="q-ml-lg ">
-            <q-img src="~src/assets/imgs/aoi-logo-xs.png"  />
-          </q-avatar>
+          <!-- <q-avatar square class="q-ml-lg "> -->
+            <q-img src="~src/assets/imgs/aoi-logo.png" height="60px" width="140px"  />
+          <!-- </q-avatar> -->
         </router-link>
       </div>
       <q-space />
