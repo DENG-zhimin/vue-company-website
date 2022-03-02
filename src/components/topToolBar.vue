@@ -8,6 +8,7 @@
         </router-link>
       </div>
       <q-space />
+      <q-btn stretch flat :label="$t('home')" type="a" to="/" />
       <q-btn-dropdown
         v-for="(tMenu, indexa) in topMenu"
         :key="indexa"

@@ -5,7 +5,7 @@ export default {
   failed: '操作失败',
   success: '操作成功',
   // menu:
-  tMenu_home: '首頁',
+  home: '首頁',
   tMenu_gallery: '畫廊',
   tMenu_products: '產品',
   tMenu_tutorials: '教程',

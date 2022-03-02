@@ -5,7 +5,7 @@ export default {
   failed: 'Action failed',
   success: 'Action was successful',
   // menu：
-  tMenu_home: 'HOME',
+  home: 'HOME',
   tMenu_products: 'products',
   tMenu_gallery: 'gallery',
   tMenu_tutorials: 'tutorials',
@@ -13,10 +13,10 @@ export default {
   tMenu_aboutUs: 'about us',
 
   m_housing: 'Housing',
+  m_strobes: 'Strobe',
   m_lens: 'Lens',
   m_flashlight: 'Flashlight',
   m_accessories: 'Accessories',
-  m_strobes: 'Strobes',
 
   cameraHousing: 'camera housing',
   strobe: 'strobe',
