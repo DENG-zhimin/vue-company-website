@@ -188,9 +188,9 @@ interface Prod {
 }
 
 interface ProdRow {
-  prod1: any;
-  prod2: any;
-  prod3: any;
+  prod1: object;
+  prod2: object;
+  prod3: object;
 }
 
 const downloadManual = (msg: string) => {
@@ -264,7 +264,7 @@ export default defineComponent({
       },
     ];
 
-    console.log(allProds);
+    // console.log(allProds);
     let prods = [];
 
     if (props.cate === 'm_lens') {
@@ -286,12 +286,12 @@ export default defineComponent({
 
     const prodArr = [];
     for (let i = 0; i < rowNum; i++) {
-      const prodRow1: ProdRow = {
+      const prodRow: ProdRow = {
         prod1: prods[i * 3 + 1],
         prod2: prods[i * 3 + 2],
         prod3: prods[i * 3 + 3],
       };
-      prodArr.push(prodRow1);
+      prodArr.push(prodRow);
     }
 
     console.log(prodArr);
