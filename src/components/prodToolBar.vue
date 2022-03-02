@@ -174,4 +174,5 @@ export default defineComponent({
   background-color: #1976d2;
   color: white;
 }
+
 </style>

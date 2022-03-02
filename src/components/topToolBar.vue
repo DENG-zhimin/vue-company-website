@@ -135,7 +135,7 @@ export default defineComponent({
   background-color: $grey-7;
   color: white;
 }
-.top-toolbar {
-  height: 100px;
-}
+// .top-toolbar {
+//   height: 80px;
+// }
 </style>

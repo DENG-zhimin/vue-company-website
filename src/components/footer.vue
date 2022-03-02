@@ -153,10 +153,11 @@ const footMenu = reactive([
   },
   
 ]);
+
 export default defineComponent({
   setup() {
     return {
-      footMenu
+      footMenu,
     }
   },
 })
