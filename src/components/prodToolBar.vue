@@ -16,14 +16,46 @@
 
       <q-space></q-space>
 
-      <q-btn
-        flat
-        class="text-white"
-        icon="shopping_cart"
-        type="a"
-        text-color="grey-10"
-        to="/"
-      />
+      <div class="cursor-pointer">
+        <q-btn
+          flat
+          class="text-white"
+          icon="search"
+          text-color="grey-10"
+        />
+        <q-popup-edit v-model="schWord" :validate="val => val.length > 2" @save="doSch()" class="sch-input">
+          <template v-slot="scope">
+            <q-input
+              autofocus
+              dense
+              v-model="scope.value"
+              :model-value="scope.value"
+              :hint="$t('search words')"
+              :rules="[
+                val => scope.validate(val) || 'More than 2 chars required'
+              ]"
+            >
+              <template v-slot:after>
+                <q-btn
+                  flat dense color="negative" icon="cancel"
+                  @click.stop="scope.cancel"
+                />
+
+                <q-btn
+                  flat dense color="positive" icon="check_circle"
+                  @click.stop="scope.set"
+                  :disable="scope.validate(scope.value) === false || scope.initialValue === scope.value"
+                />
+              </template>
+            </q-input>
+          </template>
+        </q-popup-edit>
+      </div>
+      
+      <!-- <q-input class="sch-input" v-model="schWord" v-show="showSch" outlined
+        dense filled
+      ></q-input>
+
       <q-btn
         flat
         class="text-white"
@@ -31,7 +63,9 @@
         type="a"
         to="/"
         text-color="grey-10"
-      />
+        @mouseover="showSch=true"
+        @click="doSch"
+      /> -->
     </q-toolbar>
   </div>
 </template>
@@ -147,6 +181,9 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     const { locale } = useI18n({ useScope: 'global' });
+    const schWord = ref('');
+    const showSch = ref(false);
+
     const goCate = (prodRoute: string) => {
       router
         .push({
@@ -159,11 +196,25 @@ export default defineComponent({
           console.log(e);
         });
     };
+    const doSch = () => {
+      // console.log(schWord.value);
+      router.push({
+        name: 'prodCate',
+        params: {
+          cate: 'housing',
+        }
+      }).catch(e=>{
+        console.log(e)
+      })
+    };
     return {
+      showSch,
       locale,
       topMenu,
       localeOptions,
+      schWord,
       goCate,
+      doSch,
     };
   },
 });
@@ -173,6 +224,9 @@ export default defineComponent({
 .tMenu {
   background-color: #1976d2;
   color: white;
-}
 
+}
+.sch-input {
+  margin-right: 300px;
+}
 </style>
