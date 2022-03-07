@@ -20,7 +20,7 @@
           :name="index"
           :img-src="slider.img_src"
           @mouseover.stop="autoplay=0"
-          @mouseleave.stop="autoplay='2000'"
+          @mouseleave.stop="autoplay=slideDuration"
           @click.stop="goCate(slider.cate)"
         >
         </q-carousel-slide>
@@ -48,6 +48,9 @@ const banner1 = require('src/assets/imgs/banner-1.jpg');
 const banner2 = require('src/assets/imgs/banner-2.jpg');
 const banner3 = require('src/assets/imgs/banner-3.jpg');
 const banner4 = require('src/assets/imgs/banner-4.jpg');
+
+// slide duration
+const slideDuration = 3500
 
 const sliders = [
   {
@@ -82,7 +85,7 @@ export default defineComponent({
 
     // open sliders autoplay after 5 seconds.
     setTimeout(()=>{
-      autoplay.value = 2000;
+      autoplay.value = slideDuration;
     }, 5000)
     
     const goCate = (cate: string): void => {
@@ -100,6 +103,7 @@ export default defineComponent({
       slide: ref(0),
       autoplay,
       sliders,
+      slideDuration,
       goCate,
     };
   },
