@@ -9,18 +9,25 @@
         ref="topCarousel"
         infinite
         height="500px"
+        navigation
+        transition-duration="300"
+        arrows
+        control-color="white"
       >
         <q-carousel-slide
-          v-for="(slide, index) in sliders"
+          v-for="(slider, index) in sliders"
           :key="index"
           :name="index"
-          :img-src="slide.img_src"
+          :img-src="slider.img_src"
           style="padding: 30px 130px"
+          @mouseover.stop="autoplay=0"
+          @mouseleave.stop="autoplay='2000'"
         >
-          <router-link :to="{ name: 'prodCate', params: { cate: slide.cate } }"
+          <router-link :to="{ name: 'prodCate', params: { cate: slider.cate } }"
             ><div class="full-width full-height"></div
           ></router-link>
         </q-carousel-slide>
+<!-- 
         <template v-slot:control>
           <q-carousel-control
             position="top-right"
@@ -38,7 +45,7 @@
           </q-carousel-control>
 
           <q-carousel-control
-            position="bottom-right"
+            position="top-right"
             :offset="[18, 18]"
             class="q-gutter-xs"
           >
@@ -59,9 +66,11 @@
               text-color="black"
               icon="arrow_right"
               @click="$refs.topCarousel.next()"
+              class="q-ml-lg"
             />
           </q-carousel-control>
         </template>
+         -->
       </q-carousel>
     </div>
     <hot-prod />
@@ -112,11 +121,18 @@ export default defineComponent({
     // console.log(ba1);
   },
   setup() {
-    // const info = msg.info;
+    
+    // sliders autoplay set to be false
+    const autoplay = ref(0)
 
+    // open sliders autoplay after 5 seconds.
+    setTimeout(()=>{
+      autoplay.value = 2000;
+    }, 5000)
+    
     return {
-      slide: ref(1),
-      autoplay: ref(true),
+      slide: ref(0),
+      autoplay,
       sliders,
     };
   },
@@ -124,5 +140,4 @@ export default defineComponent({
 </script>
 
 <style lang="sass" scoped>
-
 </style>
