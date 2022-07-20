@@ -12,7 +12,7 @@
             :to="{ name: 'prodCate', params: { cate: 'cameraHousing' } }"
           >
             <q-img
-              src="~src/assets/imgs/aoi_uh-epl10-gry.png"
+              src="~src/assets/imgs/uh-epl10-gry.png"
               fit="contain"
               height="80%"
             />
@@ -33,7 +33,7 @@
           <div class="col-6">
             <router-link :to="{ name: 'prodCate', params: { cate: 'strobe' } }">
               <q-img
-                src="~src/assets/imgs/aoi_strobe.png"
+                src="~src/assets/imgs/strobe.png"
                 height="150px"
                 fit="contain"
               />
@@ -56,7 +56,7 @@
                 :to="{ name: 'prodCate', params: { cate: 'ports' } }"
               >
                 <q-img
-                  src="~src/assets/imgs/aoi_port.png"
+                  src="~src/assets/imgs/port.png"
                   height="150px"
                   fit="contain"
                 />
@@ -76,7 +76,7 @@
                 :to="{ name: 'prodCate', params: { cate: 'accessories' } }"
               >
                 <q-img
-                  src="~src/assets/imgs/aoi_bracket.png"
+                  src="~src/assets/imgs/bracket.png"
                   height="150px"
                   fit="contain"
                 />
