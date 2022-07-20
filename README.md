@@ -1,7 +1,7 @@
-## aoi-uw.com website front-end (oa)
+## a company website front-end template
 
-aoi-uw.com website front-end  
-framework: vue3 + pinia + vue-route
+website front-end template
+framework: vue3 + pinia + vue-route + typescript
 
 ## Install the dependencies
 

@@ -1,45 +1,53 @@
 <template>
-    <div class="row q-px-sm q-py-xs q-ma-none bg-grey-10 text-white q-my-none q-py-none top-toolbar">
-      <div class="row content-center q-ml-lg">
-        <router-link tag="li" to="/">
-          <!-- <q-avatar square class="q-ml-lg "> -->
-            <q-img src="~src/assets/imgs/aoi-logo.png" height="60px" width="140px"  />
-          <!-- </q-avatar> -->
-        </router-link>
-      </div>
-      <q-space />
-      <q-btn stretch flat :label="$t('home')" type="a" to="/" />
-      <q-btn-dropdown
-        v-for="(tMenu, indexa) in topMenu"
-        :key="indexa"
-        stretch
-        flat
-        :label="$t(tMenu.title)"
+  <div
+    class="row q-px-sm q-py-xs q-ma-none bg-grey-10 text-white q-my-none q-py-none top-toolbar"
+  >
+    <div class="row content-center q-ml-lg">
+      <router-link tag="li" to="/">
+        <!-- <q-avatar square class="q-ml-lg "> -->
+        <q-img src="~src/assets/imgs/logo.png" height="60px" width="140px" />
+        <!-- </q-avatar> -->
+      </router-link>
+    </div>
+    <q-space />
+    <q-btn stretch flat :label="$t('home')" type="a" to="/" />
+    <q-btn-dropdown
+      v-for="(tMenu, indexa) in topMenu"
+      :key="indexa"
+      stretch
+      flat
+      :label="$t(tMenu.title)"
+    >
+      <q-item
+        v-for="(item, indexb) in tMenu.children"
+        :key="indexb"
+        clickable
+        v-close-popup
+        tabindex="0"
+        :to="item.path"
+        class="tMenu"
       >
-        <q-item
-          v-for="(item, indexb) in tMenu.children"
-          :key="indexb"
-          clickable
-          v-close-popup
-          tabindex="0"
-          :to="item.path"
-          class="tMenu"
-        >
-          <q-item-section avatar v-if="item.avatar.length > 1">
-            <q-avatar>
-              <img :src="item.avatar" />
-            </q-avatar>
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{ $t(item.title) }}</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-btn-dropdown>
-      <q-btn stretch flat :label="$t('tMenu_news')" type="a" to="/news" />
-      
-      <q-btn stretch flat type="a" :label="$t('tMenu_aboutUs')" to="/company/aboutus" />
+        <q-item-section avatar v-if="item.avatar.length > 1">
+          <q-avatar>
+            <img :src="item.avatar" />
+          </q-avatar>
+        </q-item-section>
+        <q-item-section>
+          <q-item-label>{{ $t(item.title) }}</q-item-label>
+        </q-item-section>
+      </q-item>
+    </q-btn-dropdown>
+    <q-btn stretch flat :label="$t('tMenu_news')" type="a" to="/news" />
 
-      <!-- <q-select
+    <q-btn
+      stretch
+      flat
+      type="a"
+      :label="$t('tMenu_aboutUs')"
+      to="/company/aboutus"
+    />
+
+    <!-- <q-select
         v-model="locale"
         :options="localeOptions"
         dense
@@ -49,22 +57,22 @@
         options-dense
         label-color="grey-1"
       /> -->
-        <!-- style="min-width: 120px" -->
-      <div class="row content-center">
-        <q-select 
-          v-model="locale"
-          :options="localeOptions"
-          map-options
-          dark
-          dense
-          borderless
-          emit-value
-          class="q-ml-md"
-          style="min-width: 120px;"
-        ></q-select>
-      </div>
-        <!-- standout="bg-grey-10 text-white" -->
+    <!-- style="min-width: 120px" -->
+    <div class="row content-center">
+      <q-select
+        v-model="locale"
+        :options="localeOptions"
+        map-options
+        dark
+        dense
+        borderless
+        emit-value
+        class="q-ml-md"
+        style="min-width: 120px"
+      ></q-select>
     </div>
+    <!-- standout="bg-grey-10 text-white" -->
+  </div>
 </template>
 
 <script lang="ts">
